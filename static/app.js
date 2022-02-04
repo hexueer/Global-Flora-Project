@@ -28,24 +28,24 @@ window.addEventListener('load', () => {
             //change background image of "wellesley-color" based on the description
             console.log(disc);
             if (disc.includes("Rain")) {
-                document.getElementsByClassName("wellesley-color")[0].style.backgroundImage = 'url("img/rainy.png")';
+                document.getElementsByClassName("wellesley-color")[0].style.backgroundImage = 'url("../static/img/rainy.png")';
             }
             else if (disc.includes("Cloudy")) {
-                document.getElementsByClassName("wellesley-color")[0].style.backgroundImage = 'url("img/cloudy.png")';
+                document.getElementsByClassName("wellesley-color")[0].style.backgroundImage = 'url("../static/img/cloudy.png")';
             }
             else if (disc.includes("Sunny")) {
-                document.getElementsByClassName("wellesley-color")[0].style.backgroundImage = 'url("img/sunny.png")';
+                document.getElementsByClassName("wellesley-color")[0].style.backgroundImage = 'url("../static/img/sunny.png")';
             }
             else if (disc.includes("Snow")) {
-                document.getElementsByClassName("wellesley-color")[0].style.backgroundImage = 'url("img/snowy.png")';
+                document.getElementsByClassName("wellesley-color")[0].style.backgroundImage = 'url("../static/img/snowy.png")';
             }
             else if (disc.includes("Clear")) {
-                document.getElementsByClassName("wellesley-color")[0].style.backgroundImage = 'url("img/clear.png")';
+                document.getElementsByClassName("wellesley-color")[0].style.backgroundImage = 'url("../static/img/clear.png")';
             }
         });
 
     //get the wet biome temperature/humidity and put it into the HTML file
-    fetch('web-scraper/wetData.txt')
+    fetch('../static/scraper/wetData.txt')
         .then(response => response.text())
         .then(text => {
             var wetTemp = text.split('\n').shift(); // first line 
@@ -53,12 +53,12 @@ window.addEventListener('load', () => {
             let fTemp = (wetTemp * (9 / 5)) + 32;
             tempWet.textContent = parseInt(fTemp);
             wetCel.textContent = parseInt(wetTemp);
-            var wetHumd = text.split('\n').at(-1);  // second line   
+            var wetHumd = text.split('\n').at(1);  // second line   
             console.log(wetHumd);
             wetHumidity.textContent = parseInt(wetHumd);
         });
 
-    fetch('web-scraper/dryData.txt')
+    fetch('../static/scraper/dryData.txt')
         .then(response => response.text())
         .then(text => {
             var dryTemp = text.split('\n').shift(); // first line 
@@ -66,7 +66,7 @@ window.addEventListener('load', () => {
             let dryF = (dryTemp * (9 / 5)) + 32;
             tempDry.textContent = parseInt(dryF);
             dryCel.textContent = parseInt(dryTemp);
-            var dryHumd = text.split('\n').at(-1);  // second line   
+            var dryHumd = text.split('\n').at(1);  // second line   
             console.log(dryHumd);
             dryHumidity.textContent = parseInt(dryHumd);
         });
