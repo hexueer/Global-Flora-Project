@@ -10,6 +10,9 @@ window.addEventListener('load', () => {
     let dryCel = document.querySelector('.dryTempC');
     let dryHumidity = document.querySelector('.dryHumd');
 
+    let wetUpdate = document.querySelector('.wetUpdateTime');
+    let dryUpdate = document.querySelector('.dryUpdateTime');
+
     const api = `https://api.weather.gov/gridpoints/BOX/63,71/forecast/hourly`;
     fetch(api)
         .then(response => {
@@ -56,6 +59,10 @@ window.addEventListener('load', () => {
             var wetHumd = text.split('\n').at(1);  // second line   
             console.log(wetHumd);
             wetHumidity.textContent = parseInt(wetHumd);
+
+            var wetUpdateTime = text.split('\n').at(-1);  // third line   
+            console.log(wetUpdateTime);
+            wetUpdate.textContent = wetUpdateTime;
         });
 
     fetch('../static/scraper/dryData.txt')
@@ -69,5 +76,9 @@ window.addEventListener('load', () => {
             var dryHumd = text.split('\n').at(1);  // second line   
             console.log(dryHumd);
             dryHumidity.textContent = parseInt(dryHumd);
+
+            var dryUpdateTime = text.split('\n').at(-1);  // third line   
+            console.log(dryUpdateTime);
+            dryUpdate.textContent = dryUpdateTime;
         });
 });

@@ -1,5 +1,6 @@
 import requests
 import re
+import os
 from bs4 import BeautifulSoup
 
 # retrieve biome temp, humidity data, and time updated
@@ -22,8 +23,11 @@ def getTempHumdTime(soup):
 
 # write to file if valid data
 def updateTxt(data, txt):
+    save_path = 'static/scraper'
+    completeName = os.path.join(save_path, txt)
+
     if data[0] != "NAN" and data[1] != "NAN":
-        with open(txt,"w") as txtFile:
+        with open(completeName,"w") as txtFile:
             txtFile.write('\n'.join(data))
 
 ############################################################

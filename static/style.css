@@ -64,6 +64,12 @@ h3 {
   padding: 5px;
   border-radius: 5px;
 }
+
+.update, .wetUpdateTime, .dryUpdateTime {
+  font-size: x-small;
+  color: gray;
+}
+
 .wet-color {
   background-color: rgba(177, 255, 218, 1);
   background-image: url("img/wet.png");
@@ -97,6 +103,7 @@ h3 {
   align-items: center;
   font-family: "Barlow", sans-serif;
   font-weight: bold;
+  font-size: 24px;
 }
 
 .temperature-disc {
@@ -106,8 +113,7 @@ h3 {
 }
 
 .degree-section span {
-  margin: 5px;
-  font-size: 24px;
+  margin: 5px 10px;
 }
 
 .bloom-color {
