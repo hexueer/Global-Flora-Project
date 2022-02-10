@@ -1,14 +1,11 @@
 import requests
-import re
 import os
+from datetime import datetime
 from bs4 import BeautifulSoup
 
-# retrieve biome temp, humidity data, and time updated
+# retrieve biome temp and humidity data
 # assumes row names and that data is in the FIRST TABLE
-def getTempHumdTime(soup):
-    # ex. "Biome Conditions as of 02:55 EST"
-    updateTime = soup.find(string=re.compile("Biome Conditions"))[-9:]
-
+def getTempHumd(soup):
     temp, humd = "NAN", "NAN"
     # traverse table
     for tr in soup.find_all('table')[0].children:
@@ -19,14 +16,18 @@ def getTempHumdTime(soup):
                 temp = td.next_sibling.text.strip()
             elif val == "Relative Humidity %":
                 humd = td.next_sibling.text.strip()
-    return [temp, humd, updateTime]
+    return [temp, humd]
 
-# write to file if valid data
+# write to file if valid data, adding updated date+time
 def updateTxt(data, txt):
-    save_path = 'static/scraper'
-    completeName = os.path.join(save_path, txt)
-
     if data[0] != "NAN" and data[1] != "NAN":
+        save_path = 'static/scraper'
+        completeName = os.path.join(save_path, txt)
+
+        # ex. 25/06/2021 07:58:56
+        now = datetime.now().strftime("%m/%d/%Y %H:%M") + " EST"
+        data.append(now)
+
         with open(completeName,"w") as txtFile:
             txtFile.write('\n'.join(data))
 
@@ -38,7 +39,7 @@ def updateData():
     dryPage = requests.get(dryURL)
 
     drySoup = BeautifulSoup(dryPage.content, "html.parser")
-    dryData = getTempHumdTime(drySoup)
+    dryData = getTempHumd(drySoup)
 
     updateTxt(dryData, "dryData.txt")
 
@@ -47,6 +48,6 @@ def updateData():
     wetPage = requests.get(wetURL)
 
     wetSoup = BeautifulSoup(wetPage.content, "html.parser")
-    wetData = getTempHumdTime(wetSoup)
+    wetData = getTempHumd(wetSoup)
 
     updateTxt(wetData, "wetData.txt")
