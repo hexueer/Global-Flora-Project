@@ -82,3 +82,30 @@ window.addEventListener('load', () => {
             dryUpdate.textContent = dryUpdateTime;
         });
 });
+
+
+//image gallery modals (when image is clicked, the full sized image will appear)
+const modal = document.querySelector(".modal");
+const previews = document.querySelectorAll(".gallery-item .image img");
+const original = document.querySelector(".modal-img");
+const caption = document.querySelector(".tags");
+
+previews.forEach(preview => {
+    preview.addEventListener('click', () => {
+        modal.classList.add("open");
+        original.classList.add("open");
+        //dynamic change text and image 
+        const originalSrc = preview.getAttribute('data-original');
+        original.src = `../static/img/${originalSrc}`;
+        const altText = preview.alt;
+        caption.textContent = altText;
+
+    })
+})
+
+modal.addEventListener('click', (e) => {
+    if (e.target.classList.contains("modal")) {
+        modal.classList.remove("open");
+        original.classList.remove("open");
+    }
+})
