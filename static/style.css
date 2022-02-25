@@ -38,6 +38,7 @@
   background-color: rgba(204, 236, 165, 0.5);
   padding: 10px;
   border-radius: 10px;
+  overflow: scroll;
 }
 
 .gallery-item {
