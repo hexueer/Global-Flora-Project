@@ -143,135 +143,17 @@
                     <h2> Gallery </h2>
                 </div>
                 <div class="img-gallery-container">
-
+                    
+                    {% for photo in photos %}
                     <div class="gallery-container">
                         <div class="gallery-item">
-                            <div class="image"><img src="../static/img/flower.png" alt="test"
-                                    data-original="flower.png">
-                            </div>
-                            <div class="text"> Test </div>
-                        </div>
-                    </div>
-
-                    <div class="gallery-container">
-                        <div class="gallery-item">
-                            <div class="image"><img src="../static/img/flower.png" alt="test"
-                                    data-original="flower.png">
+                            <div class="image"><img src="{{ photo.File }}" alt="{{ photo.Alt }}"
+                                data-original="{{ photo.File }}">
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
 
-                    <div class="gallery-container">
-                        <div class="gallery-item">
-                            <div class="image"><img src="../static/img/flower.png" alt="test"
-                                    data-original="flower.png">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="gallery-container">
-                        <div class="gallery-item">
-                            <div class="image"><img src="../static/img/flower.png" alt="test"
-                                    data-original="flower.png">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="gallery-container">
-                        <div class="gallery-item">
-                            <div class="image"><img src="../static/img/flower.png" alt="test"
-                                    data-original="flower.png">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="gallery-container">
-                        <div class="gallery-item">
-                            <div class="image"><img src="../static/img/flower.png" alt="test"
-                                    data-original="flower.png">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="gallery-container">
-                        <div class="gallery-item">
-                            <div class="image"><img src="../static/img/flower.png" alt="test"
-                                    data-original="flower.png">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="gallery-container">
-                        <div class="gallery-item">
-                            <div class="image"><img src="../static/img/flower.png" alt="test"
-                                    data-original="flower.png">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="gallery-container">
-                        <div class="gallery-item">
-                            <div class="image"><img src="../static/img/flower.png" alt="test"
-                                    data-original="flower.png">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="gallery-container">
-                        <div class="gallery-item">
-                            <div class="image"><img src="../static/img/flower.png" alt="test"
-                                    data-original="flower.png">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="gallery-container">
-                        <div class="gallery-item">
-                            <div class="image"><img src="../static/img/flower.png" alt="test"
-                                    data-original="flower.png">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="gallery-container">
-                        <div class="gallery-item">
-                            <div class="image"><img src="../static/img/flower.png" alt="test"
-                                    data-original="flower.png">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="gallery-container">
-                        <div class="gallery-item">
-                            <div class="image"><img src="../static/img/flower.png" alt="test"
-                                    data-original="flower.png">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="gallery-container">
-                        <div class="gallery-item">
-                            <div class="image"><img src="../static/img/flower.png" alt="test"
-                                    data-original="flower.png">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="gallery-container">
-                        <div class="gallery-item">
-                            <div class="image"><img src="../static/img/flower.png" alt="test"
-                                    data-original="flower.png">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="gallery-container">
-                        <div class="gallery-item">
-                            <div class="image"><img src="../static/img/flower.png" alt="test"
-                                    data-original="flower.png">
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
 

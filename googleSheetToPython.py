@@ -1,3 +1,6 @@
+# Originally authored by Hevo Data at https://hevodata.com/learn/google-sheets-as-a-database/
+# Edited by Ivy Ho
+
 #import library
 import gspread
 #Service client credential from oauth2client

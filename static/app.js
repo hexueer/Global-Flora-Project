@@ -95,8 +95,7 @@ previews.forEach(preview => {
         modal.classList.add("open");
         original.classList.add("open");
         //dynamic change text and image 
-        const originalSrc = preview.getAttribute('data-original');
-        original.src = `../static/img/${originalSrc}`;
+        original.src = preview.getAttribute('data-original');
         const altText = preview.alt;
         caption.textContent = altText;
 
