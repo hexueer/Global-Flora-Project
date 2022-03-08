@@ -141,14 +141,57 @@
             <div class="gallery-container-color h-2">
                 <div class="content-row">
                     <h2> Gallery </h2>
+                    <label for="filterMethod">Filter by: </label>
+                    <!-- <select id="category" method="post">
+                        <option value="empty">Select a Category</option>
+                        <optgroup label="season">
+                            <option value="spring">spring</option>
+                            <option value="summer">summer</option>
+                            <option value="autumn">autumn</option>
+                            <option value="winter">winter</option>
+                        </optgroup>
+                        <optgroup label="month">
+                            <option value="1">january</option>
+                            <option value="2">february</option>
+                            <option value="3">march</option>
+                            <option value="4">april</option>
+                            <option value="5">may</option>
+                            <option value="6">june</option>
+                            <option value="7">july</option>
+                            <option value="8">august</option>
+                            <option value="9">september</option>
+                            <option value="10">october</option>
+                            <option value="11">november</option>
+                            <option value="12">december</option>
+                        </optgroup>
+                        <optgroup label="location">
+                            <option value="dry biome">dry biome</option>
+                            <option value="wet biome">wet biome</option>
+                        </optgroup>
+                    </select> -->
+                    <form method="post" action="{{url_for('filter')}}">
+                        <select id="category" onchange="filterChange(this);">
+                            <option value="empty">Select a Category</option>
+                            <option value="season">season</option>
+                            <option value="month">month</option>
+                            <option value="location">location</option>
+                        </select>
+                        <br/>
+                        <label for="choose">Select an Option</label>
+                        <select id="choose">
+                            <option value="0">Select an Option</option>
+                        </select>
+                        <input type="submit" value="submit">
+                    </form>
                 </div>
+
                 <div class="img-gallery-container">
 
                     {% for photo in photos %}
                     <div class="gallery-container">
                         <div class="gallery-item">
-                            <div class="image"><img src="{{ photo.File }}" alt="{{ photo.Alt }}"
-                                    data-original="{{ photo.File }}">
+                            <div class="image"><img src="{{ photo.File }}" alt="{{ photo.Alt }} - {{ photo.Season }} - {{ photo.Month }} - {{ photo.Name }}"
+                                data-original="{{ photo.File }}">
                             </div>
                         </div>
                     </div>

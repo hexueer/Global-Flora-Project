@@ -22,6 +22,7 @@ app.config['TRAP_BAD_REQUEST_ERRORS'] = True
 
 @app.route('/')
 def index():
+    '''Displays main page including biome data, photo gallery, and map'''
     # retrieve biome data
     scraper.updateData()
 
@@ -34,12 +35,50 @@ def index():
     # get photo data from sheet into a dictionary
     sheet = client.open_by_key('1KS1DOG_fXZeUkhDcGgx1hgdBFqbqLyvBCR4a090a-lM').sheet1
     photoDict = sheet.get_all_records()
-    # edit URL for successful load, must be uc
+    # edit URL for successful load, must be uc instead of open
     for photo in photoDict:
         photo['File'] = photo['File'].replace('open', 'uc')
 
+    # photos should be from most recent to oldest
+    photoDict.reverse()
+
     return render_template('gallery.html', 
                             photos = photoDict)
+
+@app.route('/filter/', methods=['POST'])
+def filter():
+    '''Filters photo gallery to only show images relevant to the keyword.'''
+    if request.method == 'POST': 
+        choice = request.form['choose']
+    else: 
+        choice = request.args['choose']
+    try: 
+        resp_dic = {'error': False, 'in': x, 'out': y}
+        return jsonify(resp_dic) 
+    except Exception as err: 
+        return jsonify( {'error': True, 'err': str(err) } ) 
+
+
+# @app.route('/')
+# def index():
+#     # retrieve biome data
+#     scraper.updateData()
+
+#     # get gallery data
+#     scope = ['https://spreadsheets.google.com/feeds'] # create scope
+#     # create some credential using that scope and content of keys.json
+#     creds = ServiceAccountCredentials.from_json_keyfile_name('keys.json',scope)
+#     # create gspread authorize using that credential
+#     client = gspread.authorize(creds)
+#     # get photo data from sheet into a dictionary
+#     sheet = client.open_by_key('1KS1DOG_fXZeUkhDcGgx1hgdBFqbqLyvBCR4a090a-lM').sheet1
+#     photoDict = sheet.get_all_records()
+#     # edit URL for successful load, must be uc instead of open
+#     for photo in photoDict:
+#         photo['File'] = photo['File'].replace('open', 'uc')
+
+#     return render_template('gallery.html', 
+#                             photos = photoDict)
 
 # @app.before_first_request
 # def init_db():
