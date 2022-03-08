@@ -49,9 +49,7 @@ def index():
 def filter():
     '''Filters photo gallery to only show images relevant to the keyword.'''
     if request.method == 'POST': 
-        choice = request.form['choose']
-    else: 
-        choice = request.args['choose']
+        choice = request.form.get('choose')
     try: 
         resp_dic = {'error': False, 'in': x, 'out': y}
         return jsonify(resp_dic) 
@@ -94,4 +92,4 @@ if __name__ == '__main__':
     else:
         port = os.getuid()
     app.debug = True
-    app.run('0.0.0.0',port)
+    app.run('0.0.0.0',8252)
