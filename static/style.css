@@ -61,6 +61,11 @@
   object-position: 50% 50%;
 }
 
+.map-image {
+  height: 610px;
+  object-fit: contain;
+}
+
 .gallery-item .text {
   position: absolute;
   top: 50%;
