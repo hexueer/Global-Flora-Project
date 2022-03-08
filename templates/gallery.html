@@ -176,7 +176,7 @@
                             <option value="month">month</option>
                             <option value="location">location</option>
                         </select>
-                        <br/>
+                        <br />
                         <label for="choose">Select an Option</label>
                         <select id="choose">
                             <option value="0">Select an Option</option>
@@ -190,12 +190,12 @@
                     {% for photo in photos %}
                     <div class="gallery-container">
                         <div class="gallery-item">
-                            <div class="image"><img src="{{ photo.File }}" alt="{{ photo.Alt }} - {{ photo.Season }} - {{ photo.Month }} - {{ photo.Name }}"
-                                data-original="{{ photo.File }}">
+                            <div class="image"><img src="{{ photo.File }}"
+                                    alt="{{ photo.Alt }} - {{ photo.Season }} - {{ photo.Month }} - {{ photo.Name }}"
+                                    data-original="{{ photo.File }}">
                             </div>
                         </div>
                     </div>
-                    {% endfor %}
 
                 </div>
             </div>
@@ -208,9 +208,11 @@
                     <div class="map-image">
                         <div class="image"><img src="../static/img/map.png" alt=""></div>
                     </div>
-                    <div class="text"> Test </div>
+                    <div class="text"></div>
                 </div>
             </div>
+            {% endfor %}
+
 
             <!-- modal -->
 
