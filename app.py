@@ -45,17 +45,18 @@ def index():
     return render_template('gallery.html', 
                             photos = photoDict)
 
-# @app.route('/filter/', methods=['POST'])
-# def filter():
-#     '''Sorts '''
-#     if request.method == 'POST': 
-#         num = request.form.get('num') 
-#     else: 
-#         num = request.args.get('num') 
-#     try: 
-#         return jsonify( {'error': False, 'in': x, 'out': y} ) 
-#     except Exception as err: 
-#         return jsonify( {'error': True, 'err': str(err) } ) 
+@app.route('/filter/', methods=['POST'])
+def filter():
+    '''Filters photo gallery to only show images relevant to the keyword.'''
+    if request.method == 'POST': 
+        choice = request.form['choose']
+    else: 
+        choice = request.args['choose']
+    try: 
+        resp_dic = {'error': False, 'in': x, 'out': y}
+        return jsonify(resp_dic) 
+    except Exception as err: 
+        return jsonify( {'error': True, 'err': str(err) } ) 
 
 
 # @app.route('/')

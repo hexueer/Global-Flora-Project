@@ -169,17 +169,20 @@
                             <option value="wet biome">wet biome</option>
                         </optgroup>
                     </select> -->
-                    <select id="category" onchange="filterChange(this);">
-                        <option value="empty">Select a Category</option>
-                        <option value="season">season</option>
-                        <option value="month">month</option>
-                        <option value="location">location</option>
-                    </select>
-                    <br/>
-                    <label for="choose">Select an Option</label>
-                    <select id="choose">
-                        <option value="0">Select an Option</option>
-                    </select>
+                    <form method="post" action="{{url_for('filter')}}">
+                        <select id="category" onchange="filterChange(this);">
+                            <option value="empty">Select a Category</option>
+                            <option value="season">season</option>
+                            <option value="month">month</option>
+                            <option value="location">location</option>
+                        </select>
+                        <br/>
+                        <label for="choose">Select an Option</label>
+                        <select id="choose">
+                            <option value="0">Select an Option</option>
+                        </select>
+                        <input type="submit" value="submit">
+                    </form>
                 </div>
 
                 <div class="img-gallery-container">
