@@ -110,40 +110,49 @@ modal.addEventListener('click', (e) => {
 })
 
 // allow second select options to change according to first select choice
-var filterLists = new Array(3) 
-filterLists["empty"] = ["Select a Category"]; 
-filterLists["season"] = ["spring", "summer", "autumn", "winter"]; 
-filterLists["month"] = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]; 
-filterLists["location"] = ["dry biome", "wet biome", "camellia pavillion"]; 
+var filterLists = new Array(3)
+filterLists["empty"] = ["Select a Category"];
+filterLists["season"] = ["spring", "summer", "autumn", "winter"];
+filterLists["month"] = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
+filterLists["location"] = ["dry biome", "wet biome", "camellia pavillion"];
 /* filterChange() is called from the onchange event of a select element. 
 * param selectObj - the select object which fired the on change event. 
-*/ 
-function filterChange(selectObj) { 
+*/
+function filterChange(selectObj) {
     // get the index of the selected option 
-    var idx = selectObj.selectedIndex; 
+    var idx = selectObj.selectedIndex;
     // get the value of the selected option 
-    var which = selectObj.options[idx].value; 
+    var which = selectObj.options[idx].value;
     // use the selected option value to retrieve the list of items from the filterLists array 
-    cList = filterLists[which]; 
+    cList = filterLists[which];
     // get the category select element via its known id 
-    var cSelect = document.getElementById("choose"); 
+    var cSelect = document.getElementById("choose");
     // remove the current options from the category select 
-    var len = cSelect.options.length; 
-    while (cSelect.options.length > 0) { 
-        cSelect.remove(0); 
-    } 
-    var newOption; 
+    var len = cSelect.options.length;
+    while (cSelect.options.length > 0) {
+        cSelect.remove(0);
+    }
+    var newOption;
     // create new options 
-    for (var i=0; i<cList.length; i++) { 
-        newOption = document.createElement("option"); 
+    for (var i = 0; i < cList.length; i++) {
+        newOption = document.createElement("option");
         newOption.value = cList[i];  // assumes option string and value are the same 
-        newOption.text=cList[i]; 
+        newOption.text = cList[i];
         // add the new option 
-        try { 
+        try {
             cSelect.add(newOption);  // this will fail in DOM browsers but is needed for IE 
-        } 
-        catch (e) { 
-            cSelect.appendChild(newOption); 
-            }
-    } 
-} 
+        }
+        catch (e) {
+            cSelect.appendChild(newOption);
+        }
+    }
+}
+
+//horizontal scroll for title
+let title = document.querySelector('h1');
+
+window.onscroll = () => {
+    let pos = window.scrollX;
+    console.log(pos);
+    title.style.left = `${pos}px`;
+}
