@@ -24,7 +24,7 @@ app.config['TRAP_BAD_REQUEST_ERRORS'] = True
 def index():
     '''Displays main page including biome data, photo gallery, and map'''
     # retrieve biome data
-    scraper.updateData()
+    # scraper.updateData()
 
     # get gallery data
     scope = ['https://spreadsheets.google.com/feeds'] # create scope
@@ -37,7 +37,7 @@ def index():
     photoDict = sheet.get_all_records()
     # edit URL for successful load, must be uc instead of open
     for photo in photoDict:
-        photo['File'] = photo['File'].replace('open', 'uc')
+        photo['ImageFile'] = photo['ImageFile'].replace('open', 'uc')
 
     # photos should be from most recent to oldest
     photoDict.reverse()
