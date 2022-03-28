@@ -145,35 +145,9 @@
 
                 <div class="content-row">
                     <label for="filterMethod">Filter by: </label>
-                    <!-- <select id="category" method="post">
-                        <option value="empty">Select a Category</option>
-                        <optgroup label="season">
-                            <option value="spring">spring</option>
-                            <option value="summer">summer</option>
-                            <option value="autumn">autumn</option>
-                            <option value="winter">winter</option>
-                        </optgroup>
-                        <optgroup label="month">
-                            <option value="1">january</option>
-                            <option value="2">february</option>
-                            <option value="3">march</option>
-                            <option value="4">april</option>
-                            <option value="5">may</option>
-                            <option value="6">june</option>
-                            <option value="7">july</option>
-                            <option value="8">august</option>
-                            <option value="9">september</option>
-                            <option value="10">october</option>
-                            <option value="11">november</option>
-                            <option value="12">december</option>
-                        </optgroup>
-                        <optgroup label="location">
-                            <option value="dry biome">dry biome</option>
-                            <option value="wet biome">wet biome</option>
-                        </optgroup>
-                    </select> -->
                 </div>
 
+                <!-- filter through dropdown -->
                 <div class="content-row">
                     <form method="post" action="{{url_for('filter')}}">
                         <select id="category" onchange="filterChange(this);">
@@ -190,31 +164,12 @@
                         <input type="submit" value="submit">
                     </form>
                 </div>
-
-                <div class="img-gallery-container">
-
-                    {% for photo in photos %}
-                    <div class="gallery-container">
-                        <div class="gallery-item">
-<<<<<<< HEAD
-                            <div class="image"><img src="{{ photo.ImageFile }}" alt="{{ photo.AltText }}"
-                                data-season="{{ photo.Season }}"
-                                data-month="{{ photo.Month }}"
-                                data-name="{{ photo.Name }}"
-                                data-original="{{ photo.ImageFile }}">
-=======
-                            <div class="image"><img src="{{ photo.File }}"
-                                    alt="{{ photo.Alt }} - {{ photo.Season }} - {{ photo.Month }} - {{ photo.Name }}"
-                                    data-original="{{ photo.File }}">
->>>>>>> e885c8bb3657a1e7bd74dc2f2d14bb0992831bf7
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-
-                </div>
+                <!-- gallery items appended to this div -->
+                <div class="img-gallery-container"></div>
             </div>
 
+
+            <!-- map -->
             <div class="gallery-container-color-2 h-2">
                 <div class="content-row">
                     <h2> Map </h2>
@@ -239,9 +194,12 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
     <script src="../static/app.js"></script>
     <script src="../static/gallery.js"></script>
-    <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+    <script>
+        var photos = {{ photos | safe }};
+    </script>
 </body>
 
 </html>

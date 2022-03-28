@@ -1,3 +1,26 @@
+var display = photos; // photos dictionary loaded as var in gallery.html
+var photo;
+
+// load and display 16 most recently uploaded photos
+$(document).ready(function() {
+    for (let i = 0; i < 16; i++) {
+        photo = photos[i];
+        $('.img-gallery-container').append('<div class="gallery-container"><div class="gallery-item"><div class="image"><img id="' + i + '" src="" alt="" data-season="" data-month="" data-name="" data-original=""></div></div></div>');
+        $("#"+i).attr('src', photo.ImageFile);
+        $("#"+i).attr('alt', photo.AltText);
+        $("#"+i).attr('data-season', photo.Season);
+        $("#"+i).attr('data-month', photo.Month);
+        $("#"+i).attr('data-name', photo.Name);
+        $("#"+i).attr('data-original', photo.ImageFile);
+    };
+});
+
+// functions to display filtered selection of photos according to tag category
+
+
+
+
+
 // load photo dictionary into this file as js object
 // limit number of images initial
 // complete list, scroll event fill in photo data(url), dynamically create image objects
@@ -5,7 +28,6 @@
 // use js and jQuery to set links/other details for each img tag
 // use click events to trigger filter functions
 // event handler for form
-
 
 //image gallery modals (when image is clicked, the full sized image will appear)
 const modal = document.querySelector(".modal");
@@ -34,7 +56,7 @@ modal.addEventListener('click', (e) => {
 
 // filtering using select
 // allow second select options to change according to first select choice
-var filterLists = new Array(3) 
+var filterLists = new Array(3);
 filterLists["empty"] = ["Select a Category"]; 
 filterLists["season"] = ["spring", "summer", "autumn", "winter"]; 
 filterLists["month"] = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]; 
@@ -70,14 +92,4 @@ function filterChange(selectObj) {
             cSelect.appendChild(newOption); 
             }
     } 
-} 
-
-// function to display filtered selection of photos according to tag category
-
-
-// // load in photo dictionary
-// var photos = {{ photos | safe }}; 
-// document.ready(function () { 
-//     var elt = … get some random element from db;
-//     $("#some_img_id").attr('src', elt.url);  // this will load the corresponding image
-// });
+}
