@@ -334,7 +334,7 @@ input {
   height: 40px;
 }
 
-#seasonToggle:checked ~ul, #monthToggle:checked ~ul {
+.toggle:checked ~ul{
   height: 0%;
 }
 

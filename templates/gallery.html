@@ -144,17 +144,10 @@
                 </div>
 
                 <!-- filter through dropdowns -->
-                <!-- <select id="seasonDropdown" oninput="filterBySeason()">
-                    <option hidden disabled selected value>Season</option>
-                    <option>Spring</option>
-                    <option>Summer</option>
-                    <option>Autumn</option>
-                    <option>Winter</option>
-                </select> -->
                 <div class="content-row">
                     <nav id="seasonNav">
                         <h2>Season</h2>
-                        <input id="seasonToggle" type="checkbox" checked>
+                        <input class="toggle" type="checkbox" checked>
                         <ul>
                             <li><button onclick="filterBySeason('Spring')">Spring</button></li>
                             <li><button onclick="filterBySeason('Summer')">Summer</button></li>
@@ -165,20 +158,20 @@
 
                     <nav id="monthNav">
                         <h2>Month</h2>
-                        <input id="monthToggle" type="checkbox" checked>
+                        <input class="toggle" type="checkbox" checked>
                         <ul>
-                            <li><button value="January">January</button></li>
-                            <li><button value="February">February</button></li>
-                            <li><button value="March">March</button></li>
-                            <li><button value="April">April</button></li>
-                            <li><button value="May">May</button></li>
-                            <li><button value="June">June</button></li>
-                            <li><button value="July">July</button></li>
-                            <li><button value="August">August</button></li>
-                            <li><button value="September">September</button></li>
-                            <li><button value="October">October</button></li>
-                            <li><button value="November">November</button></li>
-                            <li><button value="December">December</button></li>
+                            <li><button onclick="filterByMonth('January')">January</button></li>
+                            <li><button onclick="filterByMonth('February')">February</button></li>
+                            <li><button onclick="filterByMonth('March')">March</button></li>
+                            <li><button onclick="filterByMonth('April')">April</button></li>
+                            <li><button onclick="filterByMonth('May')">May</button></li>
+                            <li><button onclick="filterByMonth('June')">June</button></li>
+                            <li><button onclick="filterByMonth('July')">July</button></li>
+                            <li><button onclick="filterByMonth('August')">August</button></li>
+                            <li><button onclick="filterByMonth('September')">September</button></li>
+                            <li><button onclick="filterByMonth('October')">October</button></li>
+                            <li><button onclick="filterByMonth('November')">November</button></li>
+                            <li><button onclick="filterByMonth('December')">December</button></li>
                         </ul>
                     </nav>
                 </div>
