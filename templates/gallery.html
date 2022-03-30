@@ -143,27 +143,46 @@
                     <h2> Gallery </h2>
                 </div>
 
+                <!-- filter through dropdowns -->
+                <!-- <select id="seasonDropdown" oninput="filterBySeason()">
+                    <option hidden disabled selected value>Season</option>
+                    <option>Spring</option>
+                    <option>Summer</option>
+                    <option>Autumn</option>
+                    <option>Winter</option>
+                </select> -->
                 <div class="content-row">
-                    <label for="filterMethod">Filter by: </label>
+                    <nav id="seasonNav">
+                        <h2>Season</h2>
+                        <input id="seasonToggle" type="checkbox" checked>
+                        <ul>
+                            <li><button onclick="filterBySeason('Spring')">Spring</button></li>
+                            <li><button onclick="filterBySeason('Summer')">Summer</button></li>
+                            <li><button onclick="filterBySeason('Autumn')">Autumn</button></li>
+                            <li><button onclick="filterBySeason('Winter')">Winter</button></li>
+                        </ul>
+                    </nav>
+
+                    <nav id="monthNav">
+                        <h2>Month</h2>
+                        <input id="monthToggle" type="checkbox" checked>
+                        <ul>
+                            <li><button value="January">January</button></li>
+                            <li><button value="February">February</button></li>
+                            <li><button value="March">March</button></li>
+                            <li><button value="April">April</button></li>
+                            <li><button value="May">May</button></li>
+                            <li><button value="June">June</button></li>
+                            <li><button value="July">July</button></li>
+                            <li><button value="August">August</button></li>
+                            <li><button value="September">September</button></li>
+                            <li><button value="October">October</button></li>
+                            <li><button value="November">November</button></li>
+                            <li><button value="December">December</button></li>
+                        </ul>
+                    </nav>
                 </div>
 
-                <!-- filter through dropdown -->
-                <div class="content-row">
-                    <form method="post" action="{{url_for('filter')}}">
-                        <select id="category" onchange="filterChange(this);">
-                            <option value="empty">Select a Category</option>
-                            <option value="season">season</option>
-                            <option value="month">month</option>
-                            <option value="location">location</option>
-                        </select>
-                        <br />
-                        <label for="choose">Select an Option</label>
-                        <select id="choose">
-                            <option value="0">Select an Option</option>
-                        </select>
-                        <input type="submit" value="submit">
-                    </form>
-                </div>
                 <!-- gallery items appended to this div -->
                 <div class="img-gallery-container"></div>
             </div>
@@ -222,10 +241,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
     <script src="../static/app.js"></script>
-    <script src="../static/gallery.js"></script>
     <script>
         var photos = {{ photos | safe }};
     </script>
+    <script src="../static/gallery.js"></script>
+    <script src="../static/map.js"></script>
 </body>
 
 </html>

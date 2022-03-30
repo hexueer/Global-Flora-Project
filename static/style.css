@@ -13,7 +13,6 @@
   grid-auto-flow: column;
   grid-auto-rows: 300px;
   grid-gap: 10px;
-  
 }
 
 .grid-container {
@@ -32,6 +31,8 @@
   grid-auto-rows: 150px;
   grid-gap: 10px;
   grid-auto-flow: row;
+  position: absolute;
+  top: 25%;
 }
 
 .gallery-container-color {
@@ -45,6 +46,7 @@
   background-color: rgba(204, 236, 165, 1);
   padding: 10px;
   border-radius: 10px;
+  position: relative;
 }
 
 .gallery-item {
@@ -58,6 +60,7 @@
   height: 100%;
   overflow: hidden;
   border-radius: 15px;
+  box-shadow: 4px 4px 20px -2px rgba(0,0,0,.35);
 }
 
 .gallery-item .image img {
@@ -278,4 +281,103 @@ p {
 
 .modal-img.open {
   transform: translate(-50%,-50%) scale(1);
+}
+
+
+/* dropdown */
+nav {
+  position: relative;
+  width: 20%;
+  height: 200px;
+  margin: 1%;
+}
+
+#seasonNav h2, #seasonNav ul li {
+  background: #FEA7C0;
+}
+
+#monthNav h2, #monthNav ul li {
+  background: #5D9B0D;
+}
+
+nav h2 {
+  border-radius: 10px;
+  position: relative;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: ivory;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 4px 4px 20px -2px rgba(0,0,0,.35);
+  transition: all .4s;
+  margin-bottom: 5%;
+}
+
+nav:hover h2{
+  transform: translateY(-2px);
+  box-shadow: 2px 2px 5px -1px rgba(0,0,0,.35);
+ }
+nav:hover:active h2{
+  transform: translateY(10px);
+  box-shadow: 0px -1px 2px 0px rgba(0,0,0,.35);
+ }
+
+input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  opacity: 0;
+  cursor: pointer;
+  height: 40px;
+}
+
+#seasonToggle:checked ~ul, #monthToggle:checked ~ul {
+  height: 0%;
+}
+
+nav ul {
+  position: absolute;
+  width: 100%; 
+  padding-left: 0;
+  padding-top: 0;
+  margin-top: 0;
+  list-style: none;
+  overflow: hidden;
+  text-align: right;
+  margin-bottom: 22px;
+  text-align: center;
+  transition: all .4s ease-out;
+  height: 100%;
+  z-index: 1;
+}
+
+nav ul li {
+  border-radius: 10px;
+  margin-left: 35px;
+  line-height: 1.5;
+  margin: 0;
+  margin-bottom: 5px;
+  transition: background 3s;
+  box-shadow: 2px 2px 10px -2px rgba(0,0,0,.35);
+}
+
+#seasonNav ul li:hover, #monthNav ul li:hover {
+  background: #FBD963;
+  transition: background .45s;
+}
+
+nav ul button {
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	outline: inherit;
+  color: ivory;
+  font-family: "Barlow", sans-serif;
+  text-transform: lowercase;
+  transition: color .3s;
 }
