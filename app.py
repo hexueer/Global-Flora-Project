@@ -8,7 +8,6 @@ app = Flask(__name__)
 
 import random
 import gspread
-from oauth2client.service_account import ServiceAccountCredentials
 import static.scraper.scrape as scraper
 
 app.secret_key = 'your secret here'
@@ -27,11 +26,9 @@ def index():
     # scraper.updateData()
 
     # get gallery data
-    scope = ['https://spreadsheets.google.com/feeds'] # create scope
-    # create some credential using that scope and content of keys.json
-    creds = ServiceAccountCredentials.from_json_keyfile_name('keys.json',scope)
-    # create gspread authorize using that credential
-    client = gspread.authorize(creds)
+    scope = ['https://spreadsheets.google.com/feeds'] # permissible data to access
+    # create gspread authorize using that credentials and scope
+    client = gspread.service_account('keys.json', scope)
     # get photo data from sheet into a dictionary
     sheet = client.open_by_key('1KS1DOG_fXZeUkhDcGgx1hgdBFqbqLyvBCR4a090a-lM').sheet1
     photoDict = sheet.get_all_records()
@@ -59,4 +56,4 @@ if __name__ == '__main__':
     else:
         port = os.getuid()
     app.debug = True
-    app.run('0.0.0.0',8252)
+    app.run('0.0.0.0',port)
