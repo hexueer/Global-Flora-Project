@@ -163,15 +163,19 @@ function filterByCategory(category, tag) {
   $('.toggle').prop('checked', true);
 
   // update the state of the global tag variables
-  if (category == 'Season') {
-    season = tag;
-    tag != 0 ? $("#seasonNav > h2").text(tag) : $("#seasonNav > h2").text(category); // display chosen tag on button
-  } else if (category == 'Month') {
-    month = tag;
-    tag != 0 ? $("#monthNav > h2").text(tag) : $("#monthNav > h2").text(category);
-  } else if (category == 'Area') {
-    area = tag;
-    tag != 0 ? $("#areaNav > h2").text(tag) : $("#areaNav > h2").text(category);
+  switch (category) {
+    case 'Season':
+      season = tag;
+      tag != 0 ? $("#seasonNav > h2").text(tag) : $("#seasonNav > h2").text(category); // display chosen tag on button
+      break;
+    case 'Month':
+      month = tag;
+      tag != 0 ? $("#monthNav > h2").text(tag) : $("#monthNav > h2").text(category); // display chosen tag on button
+      break;
+    case 'Area':
+      area = tag;
+      tag != 0 ? $("#areaNav > h2").text(tag) : $("#areaNav > h2").text(category); // display chosen tag on button
+      break;
   }
 
   // create new dictionary of photos for display according to the chosen tags
