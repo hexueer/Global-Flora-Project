@@ -304,6 +304,10 @@ nav {
   background: #5A9251;
 }
 
+#areaNav h2, #areaNav ul li {
+  background: #5AA1AF;
+}
+
 nav h2 {
   border-radius: 10px;
   position: relative;
@@ -338,7 +342,7 @@ input {
   height: 40px;
 }
 
-#seasonNav .toggle:checked ~ul, #monthNav .toggle:checked ~ul {
+#seasonNav .toggle:checked ~ul, #monthNav .toggle:checked ~ul, #areaNav .toggle:checked ~ul {
   height: 0%;
 }
 
@@ -362,16 +366,20 @@ nav ul li {
   transition: background 3s;
 }
 
-#seasonNav ul li:hover, #monthNav ul li:hover {
+#seasonNav ul li:hover, #monthNav ul li:hover, #areaNav ul li:hover {
   background: #FBD963;
   transition: background .45s;
 }
 
 #seasonNav ul {
-  height: 400%;
+  height: 500%;
 }
 
 #monthNav ul {
+  height: 1300%;
+}
+
+#areaNav ul {
   height: 1200%;
 }
 
