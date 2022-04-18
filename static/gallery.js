@@ -3,10 +3,94 @@ var firstLoadPhotoNum = 12;
 var photoCounter = -1;
 var photo;
 
+// declare global tag variables, 0 == all
+var season = 0;
+var month = 0;
+var area = 0;
+
 // when page first loads, load gallery
 $(document).ready(function () {
   // automatically display 12 most recently uploaded photos
   populateGallery(display, firstLoadPhotoNum);
+
+  // handle filter buttons
+  $("#sAll").on("click", function (e) {         // seasons
+    e.preventDefault();
+    filterByCategory('Season', 0);
+  });
+  $("#sSpr").on("click", function (e) {
+    e.preventDefault();
+    filterByCategory('Season', 'Spring');
+  });
+  $("#sSum").on("click", function (e) {
+    e.preventDefault();
+    filterByCategory('Season', 'Summer');
+  });
+  $("#sAut").on("click", function (e) {
+    e.preventDefault();
+    filterByCategory('Season', 'Autumn');
+  });
+  $("#sWin").on("click", function (e) {
+    e.preventDefault();
+    filterByCategory('Season', 'Winter');
+  });
+  $("#mAll").on("click", function (e) {         // months
+    e.preventDefault();
+    filterByCategory('Month', 0);
+  });
+  $("#mJan").on("click", function (e) {
+    e.preventDefault();
+    filterByCategory('Month', 'January');
+  });
+  $("#mFeb").on("click", function (e) {
+    e.preventDefault();
+    filterByCategory('Month', 'February');
+  });
+  $("#mMar").on("click", function (e) {
+    e.preventDefault();
+    filterByCategory('Month', 'March')
+  });
+  $("#mApr").on("click", function (e) {
+    e.preventDefault();
+    filterByCategory('Month', 'April')
+  });
+  $("#mMay").on("click", function (e) {
+    e.preventDefault();
+    filterByCategory('Month', 'May')
+  });
+  $("#mJun").on("click", function (e) {
+    e.preventDefault();
+    filterByCategory('Month', 'June')
+  });
+  $("#mJul").on("click", function (e) {
+    e.preventDefault();
+    filterByCategory('Month', 'July')
+  });
+  $("#mAug").on("click", function (e) {
+    e.preventDefault();
+    filterByCategory('Month', 'August')
+  });
+  $("#mSep").on("click", function (e) {
+    e.preventDefault();
+    filterByCategory('Month', 'September')
+  });
+  $("#mOct").on("click", function (e) {
+    e.preventDefault();
+    filterByCategory('Month', 'October')
+  });
+  $("#mNov").on("click", function (e) {
+    e.preventDefault();
+    filterByCategory('Month', 'November')
+  });
+  $("#mDec").on("click", function (e) {
+    e.preventDefault();
+    filterByCategory('Month', 'December')
+  });
+  $("#aAll").on("click", function (e) {         // all areas - individual areas handled in map.js
+    e.preventDefault();
+    document.getElementById('map').src = "../static/img/map.png";
+    filterByCategory('Area', 0)
+  });
 
   // always close out dropdown when other areas clicked
   $(window).click(function (e) {
@@ -75,18 +159,33 @@ function filterByCategory(category, tag) {
   photoCounter = -1;
   display = []; // empty out display data
 
-  // close dropdown when category clicked
+  // close dropdown when button clicked
   $('.toggle').prop('checked', true);
 
-  // create new dictionary of photos for display according to chosen season
-  if (category == 'Season') {
-    display = $.map(photos, function (photo) { if (photo.Season == tag) { return photo; } });
-  } else if (category == 'Month') {
-    display = $.map(photos, function (photo) { if (photo.Month == tag) { return photo; } });
-  } else if (category == 'Area') {
-    display = $.map(photos, function (photo) { if (photo.Area == tag) { return photo; } });
+  // update the state of the global tag variables
+  switch (category) {
+    case 'Season':
+      season = tag;
+      tag != 0 ? $("#seasonNav > h2").text(tag) : $("#seasonNav > h2").text(category); // display chosen tag on button
+      break;
+    case 'Month':
+      month = tag;
+      tag != 0 ? $("#monthNav > h2").text(tag) : $("#monthNav > h2").text(category); // display chosen tag on button
+      break;
+    case 'Area':
+      area = tag;
+      tag != 0 ? $("#areaNav > h2").text(tag) : $("#areaNav > h2").text(category); // display chosen tag on button
+      break;
   }
+
+  // create new dictionary of photos for display according to the chosen tags
+  display = $.map(photos, function (photo) { if (photoMatch(photo.Season, season) && photoMatch(photo.Month, month) && photoMatch(photo.Area, area)) { return photo; } });
 
   // repopulate gallery with full view feature
   populateGallery(display, firstLoadPhotoNum);
+};
+
+// helper function, checks if photo should be displayed depending on whether they have a matching tag or "all" tag
+function photoMatch(photoData, tag) {
+  return photoData == tag || tag == 0;
 };

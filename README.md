@@ -3,4 +3,4 @@
 authored by Hannah Dong & Ivy Ho
 
 Requires a virtualenv
-Dependent on Python3, BeautifulSoup
+Dependent on Python3, BeautifulSoup, gspread, and exif
