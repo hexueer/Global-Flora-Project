@@ -42,7 +42,7 @@ def index():
     # photos should be from most recent to oldest
     photoDict.reverse()
 
-    return render_template('gallery.html', 
+    return render_template('testing.html', 
                             photos = photoDict)
 
 # @app.before_first_request
@@ -59,4 +59,4 @@ if __name__ == '__main__':
     else:
         port = os.getuid()
     app.debug = True
-    app.run('0.0.0.0',8252)
+    app.run('0.0.0.0',8255)

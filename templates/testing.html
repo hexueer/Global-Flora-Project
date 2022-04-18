@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@100;300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Unica+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/styles/styles.css">
+    <!-- <link rel="icon" href="icon.png"> -->
+    <title>The Global Flora</title>
+</head>
+
+<body>
+
+    <!-- header -->
+    <div class="header">
+        <h1> Welcome to the Global Flora!</h1>
+    </div>
+    <!-- grid structure -->
+    <div class="grid">
+        <div class="nested">
+
+            <div>
+                <h2> Dry Biome</h2>
+                <ul>
+                    <li>
+                        <span class="dryDegree"> </span>
+                        <span> F </span>
+                    </li>
+                    <li>
+                        <span class="dryTempC"> </span>
+                        <span> C </span>
+                    </li>
+                    <li>
+                        <span class="iconify" data-icon="carbon:accumulation-rain" data-height="30"></span>
+                        <span class="dryHumd"> </span>
+                        <span> % </span>
+                    </li>
+                    <li>
+                        <p class="update">Last updated:</p>
+                        <span class="dryUpdateTime"></span>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h2> Wet Biome</h2>
+                <ul>
+                    <li>
+                        <span class="wetDegree"> </span>
+                        <span> F </span>
+                    </li>
+                    <li>
+                        <span class="wetTempC"> </span>
+                        <span> C </span>
+                    </li>
+                    <li>
+                        <span class="iconify" data-icon="carbon:accumulation-rain" data-height="30"></span>
+                        <span class="wetHumd"> </span>
+                        <span class="wetUpdateTime"></span>
+                        <span> % </span>
+                    </li>
+                    <li>
+                        <p class="update">Last updated:</p>
+                        <span class="wetUpdateTime"></span>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="w-2">
+                <ul class="well-ul">
+                    <li>
+                        <h2> Wellesley </h2>
+                    </li>
+                    <li>
+                        <span class="degree"></span>
+                        <span> F </span>
+                    </li>
+                    <li>
+                        <span class="cel"></span>
+                        <span> C </span>
+                    </li>
+                    <li>
+                        <span class="temperature-disc"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="gallery">
+            <h2> Gallery </h2>
+            <!-- filter through dropdowns -->
+            <div class="filter">
+                <nav id="seasonNav">
+                    <h2>Season</h2>
+                    <input class="toggle" type="checkbox" checked>
+                    <ul>
+                        <li><button onclick="filterByCategory('Season', 'Spring')">Spring</button></li>
+                        <li><button onclick="filterByCategory('Season', 'Summer')">Summer</button></li>
+                        <li><button onclick="filterByCategory('Season', 'Autumn')">Autumn</button></li>
+                        <li><button onclick="filterByCategory('Season', 'Winter')">Winter</button></li>
+                    </ul>
+                </nav>
+
+                <nav id="monthNav">
+                    <h2>Month</h2>
+                    <input class="toggle" type="checkbox" checked>
+                    <ul>
+                        <li><button onclick="filterByCategory('Month', 'January')">January</button></li>
+                        <li><button onclick="filterByCategory('Month', 'February')">February</button></li>
+                        <li><button onclick="filterByCategory('Month', 'March')">March</button></li>
+                        <li><button onclick="filterByCategory('Month', 'April')">April</button></li>
+                        <li><button onclick="filterByCategory('Month', 'May')">May</button></li>
+                        <li><button onclick="filterByCategory('Month', 'June')">June</button></li>
+                        <li><button onclick="filterByCategory('Month', 'July')">July</button></li>
+                        <li><button onclick="filterByCategory('Month', 'August')">August</button></li>
+                        <li><button onclick="filterByCategory('Month', 'September')">September</button></li>
+                        <li><button onclick="filterByCategory('Month', 'October')">October</button></li>
+                        <li><button onclick="filterByCategory('Month', 'November')">November</button></li>
+                        <li><button onclick="filterByCategory('Month', 'December')">December</button></li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- gallery items appended to this div -->
+            <div class="img-gallery-container"> </div>
+        </div>
+        <div id="map-div">
+            <h2> Map </h2>
+            <!-- map -->
+            <img src="../static/img/map.png" alt="" usemap="#globalfloramap" id="map">
+            <map name="globalfloramap">
+                <area class="map-CP" alt="Camellia Pavilion" href="" title="Camellia Pavilion" coords="428,267,21"
+                    shape="circle">
+                <area class="map-M" alt="Mezzanine " href="" title="Mezzanine" coords="81,349,16,430,64,458,116,367"
+                    shape="poly">
+                <area class="map-WN" alt="Wet North" href="" title="Wet North"
+                    coords="129,368,117,392,250,425,309,413,308,406" shape="poly">
+                <area class="map-DN" alt="Dry North" href="" title="Dry North" coords="328,395,452,337,459,344,336,423"
+                    shape="poly">
+                <area class="map-WW" alt="Wet West" href="" title="Wet West" coords="104,403,141,411,151,466,75,452"
+                    shape="poly">
+                <area class="map-WE" alt="Wet East" href="" title="Wet East"
+                    coords="154,413,215,427,198,432,200,441,296,426,306,439,300,443,311,451,335,438,346,489,254,495,163,468"
+                    shape="poly">
+                <area class="map-WS" alt="Wet South" href="" title="Wet South"
+                    coords="105,478,214,492,215,510,353,507,218,522,104,491" shape="poly">
+                <area class="map-DW" alt="Dry West" href="" title="Dry West"
+                    coords="337,436,441,372,448,382,359,461,370,468,383,457,471,444,407,473,352,491" shape="poly">
+                <area class="map-DE" alt="Dry East" href="" title="Dry East" coords="399,440,475,368,509,406,483,428"
+                    shape="poly">
+                <area class="map-DS" alt="Dry South" href="" title="Dry South"
+                    coords="351,503,446,476,526,421,532,430,450,484,354,510" shape="poly">
+            </map>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- modal -->
+
+    <div class="modal">
+        <img src="../static/img/flower.png" alt="" class="modal-img" />
+        <p class="tags"> test </p>
+    </div>
+    </div>
+
+    <div class="footer">
+        <p class="copyrights">© VKC Lab - Hannah Dong and Ivy Ho 2022</p>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+    <script src="../static/app.js"></script>
+    <script>
+        var photos = {{ photos | safe }};
+    </script>
+    <script src="../static/gallery.js"></script>
+    <script src="../static/map.js"></script>
+</body>
+
+</html>

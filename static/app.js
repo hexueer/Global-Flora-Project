@@ -31,19 +31,25 @@ window.addEventListener('load', () => {
             //change background image of "wellesley-color" based on the description
             console.log(disc);
             if (disc.includes("Rain")) {
-                document.getElementsByClassName("wellesley-color")[0].style.backgroundImage = 'url("../static/img/rainy.png")';
+                document.getElementsByClassName("w-2")[0].style.backgroundImage = 'url("../static/img/rainy.png")';
             }
             else if (disc.includes("Cloudy")) {
-                document.getElementsByClassName("wellesley-color")[0].style.backgroundImage = 'url("../static/img/cloudy.png")';
+                document.getElementsByClassName("w-2")[0].style.backgroundImage = 'url("../static/img/cloudy.png")';
             }
             else if (disc.includes("Sunny")) {
-                document.getElementsByClassName("wellesley-color")[0].style.backgroundImage = 'url("../static/img/sunny.png")';
+                document.getElementsByClassName("w-2")[0].style.backgroundImage = 'url("../static/img/sunny.png")';
             }
             else if (disc.includes("Snow")) {
-                document.getElementsByClassName("wellesley-color")[0].style.backgroundImage = 'url("../static/img/snowy.png")';
+                document.getElementsByClassName("w-2")[0].style.backgroundImage = 'url("../static/img/snowy.png")';
             }
             else if (disc.includes("Clear")) {
-                document.getElementsByClassName("wellesley-color")[0].style.backgroundImage = 'url("../static/img/clear.png")';
+                document.getElementsByClassName("w-2")[0].style.backgroundImage = 'url("../static/img/clear.png")';
+            }
+            else if (disc.includes("Fog")) {
+                document.getElementsByClassName("w-2")[0].style.backgroundImage = 'url("../static/img/foggy.png")';
+            }
+            else if (disc.includes("Showers")) {
+                document.getElementsByClassName("w-2")[0].style.backgroundImage = 'url("../static/img/rainy.png")';
             }
         });
 

@@ -58,7 +58,7 @@
   height: 100%;
   overflow: hidden;
   border-radius: 15px;
-  box-shadow: 4px 4px 20px -2px rgba(0,0,0,.35);
+  box-shadow: 4px 4px 20px -2px rgba(0, 0, 0, .35);
 }
 
 .gallery-item .image img {
@@ -79,7 +79,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   color: aliceblue;
   font-size: 25px;
 }
@@ -152,7 +152,9 @@ h3 {
   border-radius: 5px;
 }
 
-.update, .wetUpdateTime, .dryUpdateTime {
+.update,
+.wetUpdateTime,
+.dryUpdateTime {
   font-size: x-small;
   color: gray;
 }
@@ -235,6 +237,7 @@ p {
   .row {
     flex-direction: column;
   }
+
   .wellesley-color {
     margin-top: 1vh !important;
   }
@@ -245,7 +248,7 @@ p {
 }
 
 .modal {
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   position: fixed;
   top: 0;
   left: 0;
@@ -260,13 +263,14 @@ p {
   opacity: 1;
   pointer-events: all;
 }
+
 .modal p {
   color: white;
   font-size: 1.5rem;
   position: absolute;
   bottom: 5%;
   left: 50%;
-  transform: translate( -50%,-5%);
+  transform: translate(-50%, -5%);
 }
 
 .modal-img {
@@ -274,12 +278,12 @@ p {
   height: 70%;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%) scale(0.5);
+  transform: translate(-50%, -50%) scale(0.5);
   transition: all 0.25s ease-out;
 }
 
 .modal-img.open {
-  transform: translate(-50%,-50%) scale(1);
+  transform: translate(-50%, -50%) scale(1);
 }
 
 
@@ -296,11 +300,13 @@ nav {
   margin-bottom: 2%;
 }
 
-#seasonNav h2, #seasonNav ul li {
+#seasonNav h2,
+#seasonNav ul li {
   background: #FFA7C0;
 }
 
-#monthNav h2, #monthNav ul li {
+#monthNav h2,
+#monthNav ul li {
   background: #5A9251;
 }
 
@@ -314,19 +320,19 @@ nav h2 {
   flex: 1;
   justify-content: center;
   align-items: center;
-  box-shadow: 4px 4px 20px -2px rgba(0,0,0,.35);
+  box-shadow: 4px 4px 20px -2px rgba(0, 0, 0, .35);
   transition: all .4s;
 }
 
-nav:hover h2{
+nav:hover h2 {
   transform: translateY(-2px);
-  box-shadow: 2px 2px 5px -1px rgba(0,0,0,.35);
- }
- 
-nav:hover:active h2{
+  box-shadow: 2px 2px 5px -1px rgba(0, 0, 0, .35);
+}
+
+nav:hover:active h2 {
   transform: translateY(10px);
-  box-shadow: 0px -1px 2px 0px rgba(0,0,0,.35);
- }
+  box-shadow: 0px -1px 2px 0px rgba(0, 0, 0, .35);
+}
 
 input {
   position: absolute;
@@ -338,13 +344,14 @@ input {
   height: 40px;
 }
 
-#seasonNav .toggle:checked ~ul, #monthNav .toggle:checked ~ul {
+#seasonNav .toggle:checked~ul,
+#monthNav .toggle:checked~ul {
   height: 0%;
 }
 
 nav ul {
   position: absolute;
-  width: 100%; 
+  width: 100%;
   padding: 0;
   list-style: none;
   overflow: hidden;
@@ -362,7 +369,8 @@ nav ul li {
   transition: background 3s;
 }
 
-#seasonNav ul li:hover, #monthNav ul li:hover {
+#seasonNav ul li:hover,
+#monthNav ul li:hover {
   background: #FBD963;
   transition: background .45s;
 }
@@ -377,11 +385,11 @@ nav ul li {
 
 nav ul button {
   background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	cursor: pointer;
-	outline: inherit;
+  color: inherit;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: inherit;
   color: ivory;
   font-family: "Barlow", sans-serif;
   text-transform: lowercase;

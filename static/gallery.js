@@ -4,12 +4,12 @@ var photoCounter = -1;
 var photo;
 
 // when page first loads, load gallery
-$(document).ready(function() {
+$(document).ready(function () {
   // automatically display 12 most recently uploaded photos
   populateGallery(display, firstLoadPhotoNum);
 
   // always close out dropdown when other areas clicked
-  $(window).click(function(e) {
+  $(window).click(function (e) {
     if (!e.target.matches('.toggle')) {
       $('.toggle').prop('checked', true);
     }
@@ -17,7 +17,7 @@ $(document).ready(function() {
 
   // dynamically generate more img elements on scroll
   $(".gallery-container-color").scroll(function () {
-    if($(this).scrollTop() + 1 >= $(".img-gallery-container").height() - $(".gallery-container-color").height()) {
+    if ($(this).scrollTop() + 1 >= $(".img-gallery-container").height() - $(".gallery-container-color").height()) {
       populateGallery(display, 3);
     }
   });
@@ -56,12 +56,12 @@ function populateGallery(display, max) {
     photo = display[i];
     console.log(i);
     $('.img-gallery-container').append('<div class="gallery-container"><div class="gallery-item"><div class="image"><img id="' + i + '" src="" alt="" data-season="" data-month="" data-name="" data-original=""></div></div></div>');
-    $("#"+i).attr('src', photo.ImageFile);
-    $("#"+i).attr('alt', photo.AltText);
-    $("#"+i).attr('data-season', photo.Season);
-    $("#"+i).attr('data-month', photo.Month);
-    $("#"+i).attr('data-name', photo.Name);
-    $("#"+i).attr('data-original', photo.ImageFile);
+    $("#" + i).attr('src', photo.ImageFile);
+    $("#" + i).attr('alt', photo.AltText);
+    $("#" + i).attr('data-season', photo.Season);
+    $("#" + i).attr('data-month', photo.Month);
+    $("#" + i).attr('data-name', photo.Name);
+    $("#" + i).attr('data-original', photo.ImageFile);
     photoCounter = i;
   };
 
@@ -80,13 +80,13 @@ function filterByCategory(category, tag) {
 
   // create new dictionary of photos for display according to chosen season
   if (category == 'Season') {
-    display = $.map(photos, function(photo) { if (photo.Season == tag) {return photo;} });
+    display = $.map(photos, function (photo) { if (photo.Season == tag) { return photo; } });
   } else if (category == 'Month') {
-    display = $.map(photos, function(photo) { if (photo.Month == tag) {return photo;} });
+    display = $.map(photos, function (photo) { if (photo.Month == tag) { return photo; } });
   } else if (category == 'Area') {
-    display = $.map(photos, function(photo) { if (photo.Area == tag) {return photo;} });
+    display = $.map(photos, function (photo) { if (photo.Area == tag) { return photo; } });
   }
-  
+
   // repopulate gallery with full view feature
   populateGallery(display, firstLoadPhotoNum);
 };
