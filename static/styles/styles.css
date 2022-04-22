@@ -6,6 +6,10 @@
   overflow: visible;
 }
 
+body > div {
+  overflow-y: hidden;
+}
+
 h1,
 h2,
 h3 {
@@ -55,6 +59,7 @@ p {
   grid-gap: 1vh;
   text-align: center;
 }
+
 .grid #gallery {
   background-color: rgba(255, 239, 208, 0.4);
   border-radius: 1vh;
@@ -200,11 +205,15 @@ ul li:last-child {
   justify-content: left;
 }
 
+.filter nav:first-child {
+  margin-left: 2.5%;
+}
+
 nav {
   position: relative;
   width: 20%;
   margin: 1%;
-  margin-bottom: 2%;
+  margin-bottom: 0;
 }
 
 #seasonNav h3,
@@ -290,15 +299,16 @@ nav ul li {
 }
 
 #seasonNav ul {
-  height: 400%;
+  height: 316%;
+  /* height: 7.5em; */
 }
 
 #monthNav ul {
-  height: 1200%;
+  height: 826%;
 }
 
 #areaNav ul {
-  height: 1200%;
+  height: 762%;
 }
 
 nav ul button {
@@ -315,7 +325,8 @@ nav ul button {
   width: 100%;
 }
 
-nav ul, nav ul li, nav ul li:last-child{
+nav ul, nav ul li, nav ul li:last-child {
+  display: block;
   padding: 0;
   margin: 0;
 }
@@ -330,7 +341,7 @@ nav ul, nav ul li, nav ul li:last-child{
 }
 
 .footer {
-  margin-top: 0.5vh;
+  margin-top: 0.3vh;
   text-align: center;
   position: fixed;
   top: 95%;

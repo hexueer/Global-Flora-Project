@@ -101,7 +101,7 @@ $(document).ready(function () {
 
   // dynamically generate more img elements on scroll
   $("#gallery").scroll(function () {
-    if ($(this).scrollTop() + 1 >= $(".img-gallery-container").height() - $("#gallery").height()) {
+    if ($(this).scrollTop() + 10 >= $(".img-gallery-container").height() - $("#gallery").height()) {
       populateGallery(display, 3);
     }
   });
@@ -166,15 +166,15 @@ function filterByCategory(category, tag) {
   switch (category) {
     case 'Season':
       season = tag;
-      tag != 0 ? $("#seasonNav > h2").text(tag) : $("#seasonNav > h2").text(category); // display chosen tag on button
+      tag != 0 ? $("#seasonNav > h3").text(tag) : $("#seasonNav > h3").text(category); // display chosen tag on button
       break;
     case 'Month':
       month = tag;
-      tag != 0 ? $("#monthNav > h2").text(tag) : $("#monthNav > h2").text(category); // display chosen tag on button
+      tag != 0 ? $("#monthNav > h3").text(tag) : $("#monthNav > h3").text(category); // display chosen tag on button
       break;
     case 'Area':
       area = tag;
-      tag != 0 ? $("#areaNav > h2").text(tag) : $("#areaNav > h2").text(category); // display chosen tag on button
+      tag != 0 ? $("#areaNav > h3").text(tag) : $("#areaNav > h3").text(category); // display chosen tag on button
       break;
   }
 
