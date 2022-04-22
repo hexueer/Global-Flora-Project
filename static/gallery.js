@@ -100,8 +100,8 @@ $(document).ready(function () {
   });
 
   // dynamically generate more img elements on scroll
-  $(".gallery-container-color").scroll(function () {
-    if ($(this).scrollTop() + 1 >= $(".img-gallery-container").height() - $(".gallery-container-color").height()) {
+  $("#gallery").scroll(function () {
+    if ($(this).scrollTop() + 1 >= $(".img-gallery-container").height() - $("#gallery").height()) {
       populateGallery(display, 3);
     }
   });

@@ -60,6 +60,7 @@ p {
   border-radius: 1vh;
   overflow: scroll;
 }
+
 .grid #map-div {
   background-color: rgba(177, 255, 218, 0.4);
   border-radius: 1vh;
@@ -206,17 +207,22 @@ nav {
   margin-bottom: 2%;
 }
 
-#seasonNav h2,
+#seasonNav h3,
 #seasonNav ul li {
   background: #FFA7C0;
 }
 
-#monthNav h2,
+#monthNav h3,
 #monthNav ul li {
   background: #5A9251;
 }
 
-nav h2 {
+#areaNav h3,
+#areaNav ul li {
+  background: #5AA1AF;
+}
+
+nav h3 {
   border-radius: 10px;
   position: relative;
   font-size: 20px;
@@ -230,12 +236,12 @@ nav h2 {
   transition: all 0.4s;
 }
 
-nav:hover h2 {
+nav:hover h3 {
   transform: translateY(-2px);
   box-shadow: 2px 2px 5px -1px rgba(0, 0, 0, 0.35);
 }
 
-nav:hover:active h2 {
+nav:hover:active h3 {
   transform: translateY(10px);
   box-shadow: 0px -1px 2px 0px rgba(0, 0, 0, 0.35);
 }
@@ -251,7 +257,8 @@ input {
 }
 
 #seasonNav .toggle:checked ~ ul,
-#monthNav .toggle:checked ~ ul {
+#monthNav .toggle:checked ~ ul,
+#areaNav .toggle:checked ~ ul {
   height: 0%;
 }
 
@@ -276,7 +283,8 @@ nav ul li {
 }
 
 #seasonNav ul li:hover,
-#monthNav ul li:hover {
+#monthNav ul li:hover, 
+#areaNav ul li:hover {
   background: #FBD963;
   transition: background 0.45s;
 }
@@ -286,6 +294,10 @@ nav ul li {
 }
 
 #monthNav ul {
+  height: 1200%;
+}
+
+#areaNav ul {
   height: 1200%;
 }
 
@@ -303,12 +315,18 @@ nav ul button {
   width: 100%;
 }
 
+nav ul, nav ul li, nav ul li:last-child{
+  padding: 0;
+  margin: 0;
+}
+
 #map {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
   padding: 1vh;
+  max-width: 100%;
 }
 
 .footer {
