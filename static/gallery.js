@@ -86,7 +86,7 @@ $(document).ready(function () {
     e.preventDefault();
     filterByCategory('Month', 'December')
   });
-  $("#aAll").on("click", function (e) {         // all areas - individual areas handled in map.js
+  $("#aAll").on("click", function (e) {         // areas
     e.preventDefault();
     document.getElementById('map').src = "../static/img/map.png";
     filterByCategory('Area', 0)
