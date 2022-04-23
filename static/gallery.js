@@ -91,6 +91,7 @@ $(document).ready(function () {
     document.getElementById('map').src = "../static/img/map.png";
     filterByCategory('Area', 0)
   });
+  // $(e.target).attr('class').match(/map-(.*)/)[1];
 
   // always close out dropdown when other areas clicked
   $(window).click(function (e) {

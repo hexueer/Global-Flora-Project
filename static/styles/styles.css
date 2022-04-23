@@ -6,10 +6,6 @@
   overflow: visible;
 }
 
-body > div {
-  overflow-y: hidden;
-}
-
 h1,
 h2,
 h3 {
@@ -46,8 +42,10 @@ p {
 
 .header {
   position: fixed;
-  top: 2%;
-  left: 25%;
+  top: 1%;
+  margin: 0 auto; /* Will not center vertically and won't work in IE6/7. */
+  left: 0;
+  right: 0;
 }
 
 .grid {
@@ -61,14 +59,15 @@ p {
 }
 
 .grid #gallery {
-  background-color: rgba(255, 239, 208, 0.4);
+  background-color: rgba(255, 239, 208, 0.5);
   border-radius: 1vh;
   overflow: scroll;
 }
 
 .grid #map-div {
-  background-color: rgba(177, 255, 218, 0.4);
+  background-color: rgba(177, 255, 218, 0.5);
   border-radius: 1vh;
+  position: relative;
 }
 
 .nested {
@@ -109,6 +108,7 @@ ul {
   padding: 1vh;
   margin: 1vh;
 }
+
 ul li:last-child {
   padding: 2vh;
 }
@@ -212,23 +212,22 @@ ul li:last-child {
 nav {
   position: relative;
   width: 20%;
-  margin: 1%;
-  margin-bottom: 0;
+  margin: 0 1%;
 }
 
 #seasonNav h3,
 #seasonNav ul li {
-  background: #FFA7C0;
+  background: rgba(255, 167, 192, 0.9);
 }
 
 #monthNav h3,
 #monthNav ul li {
-  background: #5A9251;
+  background: rgba(90, 146, 81, 0.9);
 }
 
 #areaNav h3,
 #areaNav ul li {
-  background: #5AA1AF;
+  background: rgba(90, 161, 175, 0.9);
 }
 
 nav h3 {
@@ -339,6 +338,17 @@ nav ul, nav ul li, nav ul li:last-child {
      object-fit: contain;
   padding: 1vh;
   transform: rotate(-10deg);
+  z-index: 1;
+}
+
+.background {
+  position: absolute;
+  width: 94%;
+  height: 85%; 
+  text-align: center;
+  margin: 0 3%;
+  background-color: rgba(0, 0, 0, 0.08);
+  border-radius: 0.5vh;
 }
 
 .footer {
