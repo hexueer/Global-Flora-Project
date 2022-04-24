@@ -14,84 +14,95 @@ $(document).ready(function () {
   populateGallery(display, firstLoadPhotoNum);
 
   // handle filter buttons
-  $("#sAll").on("click", function (e) {         // seasons
-    e.preventDefault();
-    filterByCategory('Season', 0);
-  });
-  $("#sSpr").on("click", function (e) {
-    e.preventDefault();
-    filterByCategory('Season', 'Spring');
-  });
-  $("#sSum").on("click", function (e) {
-    e.preventDefault();
-    filterByCategory('Season', 'Summer');
-  });
-  $("#sAut").on("click", function (e) {
-    e.preventDefault();
-    filterByCategory('Season', 'Autumn');
-  });
-  $("#sWin").on("click", function (e) {
-    e.preventDefault();
-    filterByCategory('Season', 'Winter');
-  });
-  $("#mAll").on("click", function (e) {         // months
-    e.preventDefault();
-    filterByCategory('Month', 0);
-  });
-  $("#mJan").on("click", function (e) {
-    e.preventDefault();
-    filterByCategory('Month', 'January');
-  });
-  $("#mFeb").on("click", function (e) {
-    e.preventDefault();
-    filterByCategory('Month', 'February');
-  });
-  $("#mMar").on("click", function (e) {
-    e.preventDefault();
-    filterByCategory('Month', 'March')
-  });
-  $("#mApr").on("click", function (e) {
-    e.preventDefault();
-    filterByCategory('Month', 'April')
-  });
-  $("#mMay").on("click", function (e) {
-    e.preventDefault();
-    filterByCategory('Month', 'May')
-  });
-  $("#mJun").on("click", function (e) {
-    e.preventDefault();
-    filterByCategory('Month', 'June')
-  });
-  $("#mJul").on("click", function (e) {
-    e.preventDefault();
-    filterByCategory('Month', 'July')
-  });
-  $("#mAug").on("click", function (e) {
-    e.preventDefault();
-    filterByCategory('Month', 'August')
-  });
-  $("#mSep").on("click", function (e) {
-    e.preventDefault();
-    filterByCategory('Month', 'September')
-  });
-  $("#mOct").on("click", function (e) {
-    e.preventDefault();
-    filterByCategory('Month', 'October')
-  });
-  $("#mNov").on("click", function (e) {
-    e.preventDefault();
-    filterByCategory('Month', 'November')
-  });
-  $("#mDec").on("click", function (e) {
-    e.preventDefault();
-    filterByCategory('Month', 'December')
-  });
-  $("#aAll").on("click", function (e) {         // areas
-    e.preventDefault();
-    document.getElementById('map').src = "../static/img/map.png";
-    filterByCategory('Area', 0)
-  });
+  // $("#sAll").on("click", function (e) {         // seasons
+  //   e.preventDefault();
+  //   filterByCategory('Season', 0);
+  // });
+  // $("#sSpr").on("click", function (e) {
+  //   e.preventDefault();
+  //   filterByCategory('Season', 'Spring');
+  // });
+  // $("#sSum").on("click", function (e) {
+  //   e.preventDefault();
+  //   filterByCategory('Season', 'Summer');
+  // });
+  // $("#sAut").on("click", function (e) {
+  //   e.preventDefault();
+  //   filterByCategory('Season', 'Autumn');
+  // });
+  // $("#sWin").on("click", function (e) {
+  //   e.preventDefault();
+  //   filterByCategory('Season', 'Winter');
+  // });
+  // $("#mAll").on("click", function (e) {         // months
+  //   e.preventDefault();
+  //   filterByCategory('Month', 0);
+  // });
+  // $("#mJan").on("click", function (e) {
+  //   e.preventDefault();
+  //   filterByCategory('Month', 'January');
+  // });
+  // $("#mFeb").on("click", function (e) {
+  //   e.preventDefault();
+  //   filterByCategory('Month', 'February');
+  // });
+  // $("#mMar").on("click", function (e) {
+  //   e.preventDefault();
+  //   filterByCategory('Month', 'March')
+  // });
+  // $("#mApr").on("click", function (e) {
+  //   e.preventDefault();
+  //   filterByCategory('Month', 'April')
+  // });
+  // $("#mMay").on("click", function (e) {
+  //   e.preventDefault();
+  //   filterByCategory('Month', 'May')
+  // });
+  // $("#mJun").on("click", function (e) {
+  //   e.preventDefault();
+  //   filterByCategory('Month', 'June')
+  // });
+  // $("#mJul").on("click", function (e) {
+  //   e.preventDefault();
+  //   filterByCategory('Month', 'July')
+  // });
+  // $("#mAug").on("click", function (e) {
+  //   e.preventDefault();
+  //   filterByCategory('Month', 'August')
+  // });
+  // $("#mSep").on("click", function (e) {
+  //   e.preventDefault();
+  //   filterByCategory('Month', 'September')
+  // });
+  // $("#mOct").on("click", function (e) {
+  //   e.preventDefault();
+  //   filterByCategory('Month', 'October')
+  // });
+  // $("#mNov").on("click", function (e) {
+  //   e.preventDefault();
+  //   filterByCategory('Month', 'November')
+  // });
+  // $("#mDec").on("click", function (e) {
+  //   e.preventDefault();
+  //   filterByCategory('Month', 'December')
+  // });
+  // $("#aAll").on("click", function (e) {         // areas
+  //   e.preventDefault();
+  //   // document.getElementById('map').src = "../static/img/map.png";
+  //   resetMap();
+  //   filterByCategory('Area', 0)
+  // });
   // $(e.target).attr('class').match(/map-(.*)/)[1];
+
+  // var buttons = document.getElementsByTagName('button');
+  // for (var i = 0, len = buttons.length; i < len; i++) {
+  //   var category = $(buttons[i]).attr('class');
+  //   var tag = $(buttons[i]).attr('value'); // selected tag
+  //   buttons[i].onclick = function (e) {
+  //     e.preventDefault();
+  //     filterByCategory(category, tag);
+  //   }
+  // }
 
   // always close out dropdown when other areas clicked
   $(window).click(function (e) {
@@ -108,6 +119,11 @@ $(document).ready(function () {
   });
 });
 
+function resetMap() {
+  $("#map > .area").each(function () {
+    $(this).removeAttr("style");
+  });
+}
 
 //image gallery modals (when image is clicked, the full sized image will appear)
 function addModal() {
@@ -135,11 +151,13 @@ function addModal() {
   });
 };
 
+// fills the gallery with photos
 function populateGallery(display, max) {
+  $('.img-gallery-container').empty(); // empty out gallery
+
   var start = photoCounter + 1;
   for (let i = start; i < Math.min(display.length, start + max); i++) {
     photo = display[i];
-    console.log(i);
     $('.img-gallery-container').append('<div class="gallery-container"><div class="gallery-item"><div class="image"><img id="' + i + '" src="" alt="" data-season="" data-month="" data-name="" data-original=""></div></div></div>');
     $("#" + i).attr('src', photo.ImageFile);
     $("#" + i).attr('alt', photo.AltText);
@@ -156,7 +174,6 @@ function populateGallery(display, max) {
 
 // functions to display filtered selection of photos according to tag category
 function filterByCategory(category, tag) {
-  $('.img-gallery-container').empty(); // empty out gallery
   photoCounter = -1;
   display = []; // empty out display data
 
@@ -165,15 +182,15 @@ function filterByCategory(category, tag) {
 
   // update the state of the global tag variables
   switch (category) {
-    case 'Season':
+    case 'season':
       season = tag;
       tag != 0 ? $("#seasonNav > h3").text(tag) : $("#seasonNav > h3").text(category); // display chosen tag on button
       break;
-    case 'Month':
+    case 'month':
       month = tag;
       tag != 0 ? $("#monthNav > h3").text(tag) : $("#monthNav > h3").text(category); // display chosen tag on button
       break;
-    case 'Area':
+    case 'area':
       area = tag;
       tag != 0 ? $("#areaNav > h3").text(tag) : $("#areaNav > h3").text(category); // display chosen tag on button
       break;

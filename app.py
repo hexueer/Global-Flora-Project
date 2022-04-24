@@ -35,6 +35,8 @@ def index():
     # edit URL for successful load, must be uc instead of open
     for photo in photoDict:
         photo['ImageFile'] = photo['ImageFile'].replace('open', 'uc')
+        photo['Season'] = photo['Season'].lower()
+        photo['Month'] = photo['Month'].lower()
 
     # photos should be from most recent to oldest
     photoDict.reverse()
