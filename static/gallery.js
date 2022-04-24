@@ -94,15 +94,13 @@ $(document).ready(function () {
   // });
   // $(e.target).attr('class').match(/map-(.*)/)[1];
 
-  // var buttons = document.getElementsByTagName('button');
-  // for (var i = 0, len = buttons.length; i < len; i++) {
-  //   var category = $(buttons[i]).attr('class');
-  //   var tag = $(buttons[i]).attr('value'); // selected tag
-  //   buttons[i].onclick = function (e) {
-  //     e.preventDefault();
-  //     filterByCategory(category, tag);
-  //   }
-  // }
+  var buttons = document.getElementsByTagName('button');
+  for (var i = 0, len = buttons.length; i < len; i++) {
+    buttons[i].onclick = function (e) {
+      e.preventDefault();
+      filterByCategory($(e.target).attr('class'), $(e.target).attr('value'));
+    }
+  }
 
   // always close out dropdown when other areas clicked
   $(window).click(function (e) {
@@ -184,15 +182,15 @@ function filterByCategory(category, tag) {
   switch (category) {
     case 'season':
       season = tag;
-      tag != 0 ? $("#seasonNav > h3").text(tag) : $("#seasonNav > h3").text(category); // display chosen tag on button
+      tag != 'all' ? $("#seasonNav > h3").text(tag) : $("#seasonNav > h3").text(category); // display chosen tag on button
       break;
     case 'month':
       month = tag;
-      tag != 0 ? $("#monthNav > h3").text(tag) : $("#monthNav > h3").text(category); // display chosen tag on button
+      tag != 'all' ? $("#monthNav > h3").text(tag) : $("#monthNav > h3").text(category); // display chosen tag on button
       break;
     case 'area':
       area = tag;
-      tag != 0 ? $("#areaNav > h3").text(tag) : $("#areaNav > h3").text(category); // display chosen tag on button
+      tag != 'all' ? $("#areaNav > h3").text(tag) : $("#areaNav > h3").text(category); // display chosen tag on button
       break;
   }
 
@@ -205,5 +203,5 @@ function filterByCategory(category, tag) {
 
 // helper function, checks if photo should be displayed depending on whether they have a matching tag or "all" tag
 function photoMatch(photoData, tag) {
-  return photoData == tag || tag == 0;
+  return photoData == tag || tag == 'all';
 };
