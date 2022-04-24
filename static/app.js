@@ -64,7 +64,7 @@ window.addEventListener('load', () => {
             let fTemp = (wetTemp * (9 / 5)) + 32;
             tempWet.textContent = parseInt(fTemp);
             wetCel.textContent = parseInt(wetTemp);
-            
+
             var wetHumd = text[1];  // second line   
             console.log(wetHumd);
             wetHumidity.textContent = parseInt(wetHumd);

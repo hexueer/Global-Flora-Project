@@ -64,7 +64,7 @@ window.addEventListener('load', () => {
             let fTemp = (wetTemp * (9 / 5)) + 32;
             tempWet.textContent = parseInt(fTemp);
             wetCel.textContent = parseInt(wetTemp);
-            
+
             var wetHumd = text[1];  // second line   
             console.log(wetHumd);
             wetHumidity.textContent = parseInt(wetHumd);
@@ -94,3 +94,20 @@ window.addEventListener('load', () => {
             dryUpdate.textContent = dryUpdateTime;
         });
 });
+
+//hide and show arrows
+let arrow1 = document.querySelector('span.arrow:first-child');
+let arrow2 = document.querySelector('span.arrow:last-child');
+
+window.onscroll = () => {
+    let pos = window.scrollX;
+    console.log(pos);
+    if (pos <= 540) {
+        arrow1.style.display = 'none';
+        arrow2.style.display = 'inline-block';
+    }
+    else if (pos >= 541) {
+        arrow1.style.display = 'inline-block';
+        arrow2.style.display = 'none';
+    }
+}
