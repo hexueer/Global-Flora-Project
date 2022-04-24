@@ -26,10 +26,12 @@ $(document).ready(function () {
             });
 
             // make selected area red
-            if ($(e.target).hasClass("map-WW")) {
+            if ($(e.target).attr('value') == 'wet west') {
                 // wet west spans two boxes
-                $(".area.map-WW").each(function () {
-                    this.style.fill = "#DF5555";
+                $(".area").each(function () {
+                    if ($(this).attr('value') == 'wet west') {
+                        this.style.fill = "#DF5555";
+                    }
                 });
             }
             else {
@@ -37,14 +39,8 @@ $(document).ready(function () {
                 e.target.style.fill = "#DF5555";
             }
 
-            // filter by selected area
-            areaKey = $(e.target).attr('class').substring(9);
-            mapKeys.forEach(function(key) { // loop through map keys array
-                if (key == areaKey) {
-                    selected = mapDict[key];
-                }
-            });
-            filterByCategory('Area', selected);
+            // filter
+            filterByCategory('area', $(e.target).attr('value'));
         }
       })
 });

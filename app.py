@@ -42,14 +42,8 @@ def index():
     # photos should be from most recent to oldest
     photoDict.reverse()
 
-    return render_template('testing.html', 
+    return render_template('index.html', 
                             photos = photoDict)
-
-# @app.before_first_request
-# def init_db():
-#     dbi.cache_cnf()
-#     db_to_use = 'globalflora_db' 
-#     dbi.use(db_to_use)
 
 if __name__ == '__main__':
     import sys, os
@@ -59,6 +53,6 @@ if __name__ == '__main__':
     else:
         port = os.getuid()
     app.debug = True
-    app.run('0.0.0.0',8250)
-    # app.run(host='0.0.0.0',port=8252,ssl_context=('cs_wellesley_edu_cert.cer', 'cs.wellesley.edu.key'))
+    # app.run('0.0.0.0',8252)
+    app.run(host='0.0.0.0',port=port,ssl_context=('cs_wellesley_edu_cert.cer', 'cs.wellesley.edu.key'))
     # app.run('0.0.0.0',8252, ssl_context=('cs_wellesley_edu_cert.cer', 'cs.wellesley.edu.key'))

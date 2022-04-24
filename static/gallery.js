@@ -4,9 +4,9 @@ var photoCounter = -1;
 var photo;
 
 // declare global tag variables, 0 == all
-var season = 0;
-var month = 0;
-var area = 0;
+var season = 'all';
+var month = 'all';
+var area = 'all';
 
 // when page first loads, load gallery
 $(document).ready(function () {
@@ -14,91 +14,21 @@ $(document).ready(function () {
   populateGallery(display, firstLoadPhotoNum);
 
   // handle filter buttons
-  // $("#sAll").on("click", function (e) {         // seasons
-  //   e.preventDefault();
-  //   filterByCategory('Season', 0);
-  // });
-  // $("#sSpr").on("click", function (e) {
-  //   e.preventDefault();
-  //   filterByCategory('Season', 'Spring');
-  // });
-  // $("#sSum").on("click", function (e) {
-  //   e.preventDefault();
-  //   filterByCategory('Season', 'Summer');
-  // });
-  // $("#sAut").on("click", function (e) {
-  //   e.preventDefault();
-  //   filterByCategory('Season', 'Autumn');
-  // });
-  // $("#sWin").on("click", function (e) {
-  //   e.preventDefault();
-  //   filterByCategory('Season', 'Winter');
-  // });
-  // $("#mAll").on("click", function (e) {         // months
-  //   e.preventDefault();
-  //   filterByCategory('Month', 0);
-  // });
-  // $("#mJan").on("click", function (e) {
-  //   e.preventDefault();
-  //   filterByCategory('Month', 'January');
-  // });
-  // $("#mFeb").on("click", function (e) {
-  //   e.preventDefault();
-  //   filterByCategory('Month', 'February');
-  // });
-  // $("#mMar").on("click", function (e) {
-  //   e.preventDefault();
-  //   filterByCategory('Month', 'March')
-  // });
-  // $("#mApr").on("click", function (e) {
-  //   e.preventDefault();
-  //   filterByCategory('Month', 'April')
-  // });
-  // $("#mMay").on("click", function (e) {
-  //   e.preventDefault();
-  //   filterByCategory('Month', 'May')
-  // });
-  // $("#mJun").on("click", function (e) {
-  //   e.preventDefault();
-  //   filterByCategory('Month', 'June')
-  // });
-  // $("#mJul").on("click", function (e) {
-  //   e.preventDefault();
-  //   filterByCategory('Month', 'July')
-  // });
-  // $("#mAug").on("click", function (e) {
-  //   e.preventDefault();
-  //   filterByCategory('Month', 'August')
-  // });
-  // $("#mSep").on("click", function (e) {
-  //   e.preventDefault();
-  //   filterByCategory('Month', 'September')
-  // });
-  // $("#mOct").on("click", function (e) {
-  //   e.preventDefault();
-  //   filterByCategory('Month', 'October')
-  // });
-  // $("#mNov").on("click", function (e) {
-  //   e.preventDefault();
-  //   filterByCategory('Month', 'November')
-  // });
-  // $("#mDec").on("click", function (e) {
-  //   e.preventDefault();
-  //   filterByCategory('Month', 'December')
-  // });
-  // $("#aAll").on("click", function (e) {         // areas
-  //   e.preventDefault();
-  //   // document.getElementById('map').src = "../static/img/map.png";
-  //   resetMap();
-  //   filterByCategory('Area', 0)
-  // });
-  // $(e.target).attr('class').match(/map-(.*)/)[1];
-
   var buttons = document.getElementsByTagName('button');
   for (var i = 0, len = buttons.length; i < len; i++) {
     buttons[i].onclick = function (e) {
       e.preventDefault();
+
       filterByCategory($(e.target).attr('class'), $(e.target).attr('value'));
+
+      if ($(e.target).hasClass("area")) {
+        $(".area").each(function () {
+          if ($(this).attr('value') == $(e.target).attr('value')) {
+              this.style.fill = "#DF5555";
+          }
+        });
+      }
+      
     }
   }
 
