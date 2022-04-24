@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Unica+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../static/styles/styles.css">
+    <link rel="stylesheet" href="../static/style.css">
     <!-- <link rel="icon" href="icon.png"> -->
     <title>The Global Flora</title>
 </head>
@@ -28,12 +28,12 @@
                 <h2> Dry Biome</h2>
                 <ul>
                     <li>
-                        <span class="dryDegree"> </span>
-                        <span> F </span>
-                    </li>
-                    <li>
                         <span class="dryTempC"> </span>
                         <span> C </span>
+                    </li>
+                    <li>
+                        <span class="dryDegree"> </span>
+                        <span> F </span>
                     </li>
                     <li>
                         <span class="iconify" data-icon="carbon:accumulation-rain" data-height="30"></span>
@@ -51,17 +51,16 @@
                 <h2> Wet Biome</h2>
                 <ul>
                     <li>
-                        <span class="wetDegree"> </span>
-                        <span> F </span>
-                    </li>
-                    <li>
                         <span class="wetTempC"> </span>
                         <span> C </span>
                     </li>
                     <li>
+                        <span class="wetDegree"> </span>
+                        <span> F </span>
+                    </li>
+                    <li>
                         <span class="iconify" data-icon="carbon:accumulation-rain" data-height="30"></span>
                         <span class="wetHumd"> </span>
-                        <span class="wetUpdateTime"></span>
                         <span> % </span>
                     </li>
                     <li>
@@ -78,12 +77,12 @@
                         <h2> Wellesley </h2>
                     </li>
                     <li>
-                        <span class="degree"></span>
-                        <span> F </span>
-                    </li>
-                    <li>
                         <span class="cel"></span>
                         <span> C </span>
+                    </li>
+                    <li>
+                        <span class="degree"></span>
+                        <span> F </span>
                     </li>
                     <li>
                         <span class="temperature-disc"></span>
@@ -220,7 +219,7 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
-    <script src="../static/app.js"></script>
+    <script src="../static/data.js"></script>
     <script>
         var photos = {{ photos | safe }};
     </script>

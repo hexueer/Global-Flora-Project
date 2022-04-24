@@ -23,7 +23,7 @@ app.config['TRAP_BAD_REQUEST_ERRORS'] = True
 def index():
     '''Displays main page including biome data, photo gallery, and map'''
     # retrieve biome data
-    # scraper.updateData()
+    scraper.updateData()
 
     # get gallery data
     scope = ['https://spreadsheets.google.com/feeds'] # permissible data to access
