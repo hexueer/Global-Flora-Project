@@ -23,7 +23,7 @@ app.config['TRAP_BAD_REQUEST_ERRORS'] = True
 def index():
     '''Displays main page including biome data, photo gallery, and map'''
     # retrieve biome data
-    # scraper.updateData()
+    scraper.updateData()
 
     # get gallery data
     scope = ['https://spreadsheets.google.com/feeds'] # permissible data to access
@@ -35,18 +35,15 @@ def index():
     # edit URL for successful load, must be uc instead of open
     for photo in photoDict:
         photo['ImageFile'] = photo['ImageFile'].replace('open', 'uc')
+        photo['Season'] = photo['Season'].lower()
+        photo['Month'] = photo['Month'].lower()
+        photo['Area'] = photo['Area'].lower()
 
     # photos should be from most recent to oldest
     photoDict.reverse()
 
-    return render_template('testing.html', 
+    return render_template('index.html', 
                             photos = photoDict)
-
-# @app.before_first_request
-# def init_db():
-#     dbi.cache_cnf()
-#     db_to_use = 'globalflora_db' 
-#     dbi.use(db_to_use)
 
 if __name__ == '__main__':
     import sys, os

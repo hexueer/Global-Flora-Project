@@ -3,6 +3,9 @@ import os
 from datetime import datetime
 from bs4 import BeautifulSoup
 
+# how many seconds we should wait for data pages to load before giving up
+wait = 2 
+
 # retrieve biome temp and humidity data
 # assumes row names and that data is in the FIRST TABLE
 def getTempHumd(soup):
@@ -36,18 +39,30 @@ def updateTxt(data, txt):
 def updateData():
     # scrape and save dry biome live data
     dryURL = "http://10.131.0.32/view.html" # make sure IP is up to date
-    dryPage = requests.get(dryURL)
 
-    drySoup = BeautifulSoup(dryPage.content, "html.parser")
-    dryData = getTempHumd(drySoup)
+    try:
+        dryPage = requests.get(dryURL, timeout=wait)
 
-    updateTxt(dryData, "dryData.txt")
+    except requests.exceptions.RequestException as e:  # exit if any issue
+        return 'Server taking too long. Try again later.'
+
+    else:
+        drySoup = BeautifulSoup(dryPage.content, "html.parser")
+        dryData = getTempHumd(drySoup)
+
+        updateTxt(dryData, "dryData.txt")
 
     # scrape and save wet biome live data
     wetURL = "http://10.131.0.33/view.html" # make sure IP is up to date
-    wetPage = requests.get(wetURL)
 
-    wetSoup = BeautifulSoup(wetPage.content, "html.parser")
-    wetData = getTempHumd(wetSoup)
+    try: 
+        wetPage = requests.get(wetURL, timeout=wait)
+    
+    except requests.exceptions.RequestException as e:  # exit if any issue
+        return 'Server taking too long. Try again later.'
 
-    updateTxt(wetData, "wetData.txt")
+    else:
+        wetSoup = BeautifulSoup(wetPage.content, "html.parser")
+        wetData = getTempHumd(wetSoup)
+
+        updateTxt(wetData, "wetData.txt")
