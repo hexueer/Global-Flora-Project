@@ -59,6 +59,6 @@ if __name__ == '__main__':
     else:
         port = os.getuid()
     app.debug = True
-    app.run('0.0.0.0',8252)
+    app.run('0.0.0.0',8250)
     # app.run(host='0.0.0.0',port=8252,ssl_context=('cs_wellesley_edu_cert.cer', 'cs.wellesley.edu.key'))
     # app.run('0.0.0.0',8252, ssl_context=('cs_wellesley_edu_cert.cer', 'cs.wellesley.edu.key'))
