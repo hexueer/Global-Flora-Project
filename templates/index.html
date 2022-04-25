@@ -10,7 +10,7 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Unica+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../static/style.css">
-    <!-- <link rel="icon" href="icon.png"> -->
+    <link rel="icon" type="image/png" href="../static/img/favicon_logo.png" sizes="32x32" />
     <title>The Global Flora</title>
 </head>
 
@@ -19,30 +19,30 @@
     <!-- header -->
     <div class="header">
         <h1>
-            <span class="arrow">&#10145;</span>
-            Welcome to the Global Flora!
-            <span class="arrow">&#10145;</span>
+            <span class="arrow bounce" id="left">&#10140;</span>
+            Welcome to <img id="logo0" src="../static/img/logo.png" alt="hannah dong's drawing flower">the <img id="logo1" src="../static/img/logo.png" alt="hannah dong's drawing flower">Glo<img id="logo2" src="../static/img/logo.png" alt="hannah dong's drawing flower">bal <img id="logo3" src="../static/img/logo.png" alt="hannah dong's drawing flower">Flor<img id="logo4" src="../static/img/logo.png" alt="hannah dong's drawing flower">a!
+            <span class="arrow bounce" id="right">&#10140;</span>
         </h1>
     </div>
     <!-- grid structure -->
     <div class="grid">
         <div class="nested">
 
-            <div>
-                <h2> Dry Biome</h2>
+            <div class="component">
+                <h2>Dry Biome</h2>
                 <ul>
                     <li>
                         <span class="dryTempC"> </span>
-                        <span>°C </span>
+                        <span>°C</span>
                     </li>
                     <li>
                         <span class="dryDegree"> </span>
-                        <span>°F </span>
+                        <span>°F</span>
                     </li>
                     <li>
                         <span class="iconify" data-icon="carbon:accumulation-rain" data-height="30"></span>
                         <span class="dryHumd"> </span>
-                        <span> % </span>
+                        <span>%</span>
                     </li>
                     <li>
                         <p class="update">Last updated:</p>
@@ -51,21 +51,21 @@
                 </ul>
             </div>
 
-            <div>
-                <h2> Wet Biome</h2>
+            <div class="component">
+                <h2>Wet Biome</h2>
                 <ul>
                     <li>
                         <span class="wetTempC"></span>
-                        <span>°C </span>
+                        <span>°C</span>
                     </li>
                     <li>
                         <span class="wetDegree"></span>
-                        <span>°F </span>
+                        <span>°F</span>
                     </li>
                     <li>
                         <span class="iconify" data-icon="carbon:accumulation-rain" data-height="30"></span>
                         <span class="wetHumd"> </span>
-                        <span> % </span>
+                        <span>%</span>
                     </li>
                     <li>
                         <p class="update">Last updated:</p>
@@ -75,18 +75,18 @@
             </div>
 
 
-            <div class="w-2">
+            <div class="w-2 component">
                 <ul class="well-ul">
                     <li>
-                        <h2> Wellesley </h2>
+                        <h2>Wellesley</h2>
                     </li>
                     <li>
                         <span class="cel"></span>
-                        <span> C </span>
+                        <span>°C</span>
                     </li>
                     <li>
                         <span class="degree"></span>
-                        <span> F </span>
+                        <span>°F</span>
                     </li>
                     <li>
                         <span class="temperature-disc"></span>
@@ -94,7 +94,7 @@
                 </ul>
             </div>
         </div>
-        <div id="gallery">
+        <div id="gallery" class="component">
             <h2> Gallery </h2>
             <!-- filter through dropdowns -->
             <div class="filter">
@@ -151,11 +151,12 @@
             <!-- gallery items appended to this div -->
             <div class="img-gallery-container"> </div>
         </div>
-        <div id="map-div">
+        <div id="map-div" class="component">
             <h2> Map </h2>
             <!-- map -->
             <!-- do NOT adjust this code -->
             <div class="background"></div>
+            <img id="logo" src="../static/img/logo.png" alt="hannah dong's drawing flower">
             <svg id="map" width="2247" height="1344" viewBox="0 0 2247 1344" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path d="M384.722 848.483L355.531 899.952L823.364 1009.04L1002.35 967.554" stroke="white"

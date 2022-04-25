@@ -41,7 +41,7 @@ $(document).ready(function () {
 
   // dynamically generate more img elements on scroll
   $("#gallery").scroll(function () {
-    if ($(this).scrollTop() + 10 >= $(".img-gallery-container").height() - $("#gallery").height()) {
+    if ($(this).scrollTop() + 1 >= $(".img-gallery-container").height() - $("#gallery").height()) {
       populateGallery(display, 3);
     }
   });
@@ -81,7 +81,6 @@ function addModal() {
 
 // fills the gallery with photos
 function populateGallery(display, max) {
-  $('.img-gallery-container').empty(); // empty out gallery
 
   var start = photoCounter + 1;
   for (let i = start; i < Math.min(display.length, start + max); i++) {
@@ -102,6 +101,7 @@ function populateGallery(display, max) {
 
 // functions to display filtered selection of photos according to tag category
 function filterByCategory(category, tag) {
+  $('.img-gallery-container').empty(); // empty out gallery
   photoCounter = -1;
   display = []; // empty out display data
 

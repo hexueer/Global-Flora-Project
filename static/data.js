@@ -95,13 +95,12 @@ window.addEventListener('load', () => {
         });
 });
 
-//hide and show arrows
+// hide and show arrows
 let arrow1 = document.querySelector('span.arrow:first-child');
 let arrow2 = document.querySelector('span.arrow:last-child');
 
 window.onscroll = () => {
     let pos = window.scrollX;
-    console.log(pos);
     if (pos <= 540) {
         arrow1.style.display = 'none';
         arrow2.style.display = 'inline-block';
