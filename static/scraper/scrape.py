@@ -4,7 +4,7 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 
 # how many seconds we should wait for data pages to load before giving up
-wait = 2 
+wait = 1
 
 # retrieve biome temp and humidity data
 # assumes row names and that data is in the FIRST TABLE
