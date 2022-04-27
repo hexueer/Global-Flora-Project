@@ -45,6 +45,14 @@ def index():
     return render_template('index.html', 
                             photos = photoDict)
 
+# FIX PHOTO ORIENTATION
+# EXIF.getData(imageElement, function() {
+#                 var orientation = EXIF.getTag(this, "Orientation");
+
+#                 if(orientation == 6)
+#                     $(imageElement).css('transform', 'rotate(90deg)')
+# }); 
+
 if __name__ == '__main__':
     import sys, os
     if len(sys.argv) > 1:

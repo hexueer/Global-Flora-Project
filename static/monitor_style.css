@@ -6,6 +6,10 @@
     overflow: visible;
   }
   
+  body {
+    overflow-y: hidden;
+  }
+
   ::-webkit-scrollbar {
     display: none;
   }
@@ -491,11 +495,17 @@
   .footer {
     margin-top: 0.3vh;
     text-align: center;
-    position: fixed;
+    position: relative;
     top: 95%;
     left: 40%;
+    color: rgb(202, 202, 202);
+  }
+
+  .copyrights {
+    position: fixed;
   }
   
-  .copyrights {
-    color: rgb(202, 202, 202);
+  #refreshTimer {
+    position: fixed; 
+    right: 1vw;
   }

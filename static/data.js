@@ -12,7 +12,14 @@ window.addEventListener('load', () => {
 
     let wetUpdate = document.querySelector('.wetUpdateTime');
     let dryUpdate = document.querySelector('.dryUpdateTime');
+    // time values to include in dates
     let options = {  weekday: 'long', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true };
+
+    // datetime oddly returns time one hour ahead so use this to adjust time
+    Date.prototype.subtractHours = function(h) {
+        this.setTime(this.getTime() - (h*60*60*1000));
+        return this;
+      }
 
     const api = `https://api.weather.gov/gridpoints/BOX/63,71/forecast/hourly`;
     fetch(api)
@@ -70,7 +77,7 @@ window.addEventListener('load', () => {
             console.log(wetHumd);
             wetHumidity.textContent = parseInt(wetHumd);
 
-            var wetUpdateTime = new Date(text[2]).toLocaleTimeString('en-us', options).replace(/,/g, '');  // third line   
+            var wetUpdateTime = new Date(text[2]).subtractHours(1).toLocaleTimeString('en-us', options).replace(/,/g, '');  // third line   
             console.log(wetUpdateTime);
             wetUpdate.textContent = "As of " + wetUpdateTime;
         });
@@ -90,7 +97,7 @@ window.addEventListener('load', () => {
             console.log(dryHumd);
             dryHumidity.textContent = parseInt(dryHumd);
 
-            var dryUpdateTime = new Date(text[2]).toLocaleTimeString('en-us', options).replace(/,/g, '');  // third line   
+            var dryUpdateTime = new Date(text[2]).subtractHours(1).toLocaleTimeString('en-us', options).replace(/,/g, '');  // third line   
             console.log(dryUpdateTime);
             dryUpdate.textContent = "As of " + dryUpdateTime;
         });

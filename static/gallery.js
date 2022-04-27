@@ -66,8 +66,10 @@ function addModal() {
       original.classList.add("open");
       //dynamic change text and image 
       original.src = preview.getAttribute('data-original');
-      const altText = preview.alt;
-      caption.textContent = altText;
+      const altText = preview.alt.trim();
+      const providedName = preview.getAttribute('data-name');
+      const nameCredit = providedName != "Anonymous" ? ' by ' + providedName : ""
+      caption.textContent = '"' + altText + '"' + nameCredit;
     })
   });
 
