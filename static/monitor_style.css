@@ -439,6 +439,10 @@
     transform: rotate(-10deg);
     z-index: 1;
   }
+
+  .area {
+    cursor: pointer;
+  }
   
   #logo0 {
     position: absolute;
