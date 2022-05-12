@@ -61,6 +61,6 @@ if __name__ == '__main__':
     else:
         port = os.getuid()
     app.debug = True
-    # app.run('0.0.0.0',port)
+    app.run('0.0.0.0',8250)
     # app.run(host='0.0.0.0',port=port,ssl_context='adhoc')
-    app.run(host='0.0.0.0',port=port,ssl_context=('cs_wellesley_edu_cert.cer', 'cs.wellesley.edu.key'))
+    # app.run(host='0.0.0.0',port=port,ssl_context=('cs_wellesley_edu_cert.cer', 'cs.wellesley.edu.key'))

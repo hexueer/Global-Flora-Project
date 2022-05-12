@@ -267,11 +267,20 @@ ul li {
   pointer-events: all;
 }
 
-.modal p {
+.modal p.tags {
   color: white;
   font-size: 3rem;
   position: absolute;
   bottom: 7%;
+  left: 50%;
+  transform: translate(-50%, -5%);
+}
+
+.modal p.name {
+  color: white;
+  font-size: 3rem;
+  position: absolute;
+  bottom: 3%;
   left: 50%;
   transform: translate(-50%, -5%);
 }

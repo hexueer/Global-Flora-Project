@@ -24,11 +24,11 @@ $(document).ready(function () {
       if ($(e.target).hasClass("area")) {
         $(".area").each(function () {
           if ($(this).attr('value') == $(e.target).attr('value')) {
-              this.style.fill = "#DF5555";
+            this.style.fill = "#DF5555";
           }
         });
       }
-      
+
     }
   }
 
@@ -59,6 +59,7 @@ function addModal() {
   const previews = document.querySelectorAll(".gallery-item .image img");
   const original = document.querySelector(".modal-img");
   const caption = document.querySelector(".tags");
+  const name = document.querySelector(".name");
 
   previews.forEach(preview => {
     preview.addEventListener('click', () => {
@@ -69,7 +70,8 @@ function addModal() {
       const altText = preview.alt.trim();
       const providedName = preview.getAttribute('data-name');
       const nameCredit = providedName != "Anonymous" ? ' by ' + providedName : ""
-      caption.textContent = '"' + altText + '"' + nameCredit;
+      caption.textContent = altText;
+      name.textContent = nameCredit;
     })
   });
 
