@@ -195,7 +195,7 @@ ul li {
   position: relative
 }
 
-.component > p {
+.component>p {
   position: absolute;
   bottom: 1vh;
   left: 0;
